@@ -1,0 +1,62 @@
+/* Global styles and imports */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", "Arial", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+}
+
+//Primeng Reset classes
+@layer reset {
+  .p-disabled {
+    opacity: 1;
+  }
+}
+
+//primeng Classes
+@layer primeng {
+}
+
+//Tailwind classes
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "primary";
+  src: url("../public/fonts/icons-fonts/primary.woff2") format("woff2");
+}
+
+:root {
+  --iconUnitCode: "\e000";
+  --iconType: "primary";
+}
+
+/* base class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 var(--iconType);
+  color: inherit;
+  flex-shrink: 0;
+  line-height: 1;
+  max-width: initial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* icons */
+.icon::before {
+  content: var(--iconUnitCode);
+}
