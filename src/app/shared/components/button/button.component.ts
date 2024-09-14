@@ -22,7 +22,7 @@ export class ButtonComponent {
 
   public readonly mode: { [key: string]: string } = {
     "normal": 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
-    "disabled": 'tw-pointer-events-none tw-cursor-not-allowed tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
+    "disabled": 'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
   };
 
   constructor() { }
