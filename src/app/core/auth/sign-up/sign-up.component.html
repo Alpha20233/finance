@@ -131,12 +131,12 @@
         [binary]="true"
         inputId="binary"
         [labelStyleClass]="
-          checked == false && form_submit()
+          !checked() && form_submit()
             ? 'tw-text-red-500 tw-text-sm'
             : 'xl:tw-cursor-pointer tw-text-sm '
         "
         label="I agree to Terms & privacy"
-        [(ngModel)]="checked"
+        [ngModel]="checked()" (ngModelChange)="checked.set($event)"
         [ngModelOptions]="{ standalone: true }"
       >
       </p-checkbox>

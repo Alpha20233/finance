@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, model, signal } from '@angular/core';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import {
   FormControl,
@@ -34,7 +34,7 @@ import { CommService } from '../../../shared/services/common/comm.service';
 })
 export class SignInComponent {
   frm!: FormGroup;
-  checked = signal<boolean>(true);
+  checked = model<boolean>(true);
   form_submit = signal<boolean>(false);
 
   constructor(public readonly comm: CommService) {}

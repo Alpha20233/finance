@@ -105,11 +105,10 @@
         [binary]="true"
         [disabled]="true"
         inputId="binary"
-        class="tw-select-none"
-        labelStyleClass="tw-cursor-pointer tw-text-sm"
+        labelStyleClass="xl:tw-cursor-pointer tw-text-sm tw-select-none"
         label="I agree to Terms & privacy"
-        [(ngModel)]="checked"
-        [ngModelOptions]="{ standalone: true }"
+        [ngModel]="checked()" 
+        [ngModelOptions]="{standalone: true}"
       >
       </p-checkbox>
 
