@@ -33,7 +33,7 @@ export class DatepickerComponent {
   validText: InputSignal<string> = input<string>('');
   value: InputSignal<string> = input<string>('');
   max: InputSignal<Date> = input<Date>(new Date());
-  dateChng = output<string>({ alias: 'date' });
+  dateChng = output<string>({ alias: 'date'});
 
   public readonly isMobile = signal<boolean>(false);
 

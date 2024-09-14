@@ -39,7 +39,7 @@ export class SignInComponent {
 
   constructor(public readonly comm: CommService) {}
 
-  ngOnInit() {
+  ngOnInit():void {
     this.frm = new FormGroup({
       cEmail: new FormControl('', [
         Validators.required,
@@ -53,6 +53,7 @@ export class SignInComponent {
 
   submit() {
     this.form_submit.set(true);
+    if(this.frm.invalid) return;
     const formData: signin = this.frm.value;
     console.warn(formData);
   }

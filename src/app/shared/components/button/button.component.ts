@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
-  signal,
-  SimpleChanges,
+  input,
+  InputSignal,
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
@@ -16,21 +15,17 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
-  @Input() disabled = signal<boolean>(false);
-  @Input() type: keyof typeof this.mode = 'normal';
 
-  public readonly mode = {
-    normal: 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
-    disabled:
-      'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
+export class ButtonComponent {
+  disabled: InputSignal<boolean> = input<boolean>(false);
+  type: InputSignal<string> = input<string>('normal')
+
+  public readonly mode: { [key: string]: string } = {
+    "normal": 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
+    "disabled": 'tw-pointer-events-none tw-cursor-not-allowed tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
   };
 
-  public getClassName = signal<string>('');
+  constructor() { }
 
-  constructor() {}
-
-  ngOnInit(): void {
-    this.getClassName.set(this.mode[this.type] ?? this.mode['normal']);
-  }
+  ngOnInit(): void { }
 }

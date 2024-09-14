@@ -42,7 +42,7 @@ export class SignUpComponent {
 
   constructor(public readonly comm: CommService) {}
 
-  ngOnInit() {
+  ngOnInit():void {
     this.frm = new FormGroup({
       cName: new FormControl('', Validators.required),
       dDob: new FormControl('', Validators.required),
@@ -59,6 +59,7 @@ export class SignUpComponent {
 
   submit() {
     this.form_submit.set(true);
+    if(this.frm.invalid) return;
     const formData: signup = this.frm.value;
   }
 }
