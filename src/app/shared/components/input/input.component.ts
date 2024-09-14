@@ -31,27 +31,29 @@ import { IconComponent } from '../icon/icon.component';
     },
   ],
 })
-
 export class InputComponent implements ControlValueAccessor {
-
-  type:InputSignal<string> = input<string>('text');
-  inpLabel:InputSignal<string> = input.required<string>();
-  placeholder:InputSignal<string> = input.required<string>();
-  readonly:InputSignal<boolean> = input<boolean>(false);
-  disabled:InputSignal<boolean> = input<boolean>(false);
-  isRequired:InputSignal<boolean> = input<boolean>(false);
+  type: InputSignal<string> = input<string>('text');
+  inpLabel: InputSignal<string> = input.required<string>();
+  placeholder: InputSignal<string> = input.required<string>();
+  readonly: InputSignal<boolean> = input<boolean>(false);
+  disabled: InputSignal<boolean> = input<boolean>(false);
+  isRequired: InputSignal<boolean> = input<boolean>(false);
   // value:InputSignal<string | number> = input<string | number>('');
-  validText:InputSignal<string> = input<string>('');
-  validText2:InputSignal<string> = input<string>('');
-  maxLength:InputSignal<number> = input<number>(50);
-  isValid:InputSignal<validCond> = input<validCond>({cond1:false,cond2:false,form_submit:false})
-  icon:InputSignal<icon> = input<icon>({name: '', type: 'primary'})
+  validText: InputSignal<string> = input<string>('');
+  validText2: InputSignal<string> = input<string>('');
+  maxLength: InputSignal<number> = input<number>(50);
+  isValid: InputSignal<validCond> = input<validCond>({
+    cond1: false,
+    cond2: false,
+    form_submit: false,
+  });
+  icon: InputSignal<icon> = input<icon>({ name: '', type: 'primary' });
 
   eyeToggle = signal<boolean>(false);
   inptValue = signal<string>('');
 
-  onChange: (value: string) => void = () => { };
-  onTouched: () => void = () => { };
+  onChange: (value: string) => void = () => {};
+  onTouched: () => void = () => {};
 
   writeValue(value: string): void {
     this.inptValue.set(value.trim());

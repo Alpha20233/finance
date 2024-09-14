@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, input, Input, InputSignal, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  input,
+  Input,
+  InputSignal,
+  signal,
+} from '@angular/core';
 
 @Component({
   selector: 'icon',
@@ -10,16 +18,16 @@ import { ChangeDetectionStrategy, Component, effect, input, Input, InputSignal, 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
-  name:InputSignal<string> = input.required<string>();
-  type:InputSignal<string> = input<string>('primary');
-  addCls:InputSignal<string> = input<string>('');
+  name: InputSignal<string> = input.required<string>();
+  type: InputSignal<string> = input<string>('primary');
+  addCls: InputSignal<string> = input<string>('');
 
   public readonly iconName = signal<string>('');
 
   iconList: { [key: string]: string } = {
-    'eye': '\uE000',
+    eye: '\uE000',
     'eye-off': '\uE001',
-    'calendar': '\uE002',
+    calendar: '\uE002',
   };
 
   constructor() {}

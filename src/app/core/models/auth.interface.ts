@@ -14,10 +14,10 @@ export interface signin {
   cPass: string;
 }
 
-export interface signup{
-  cName:string;
-  dDob:string | Date;
+export interface signup {
+  cName: string;
+  dDob: string | Date;
   cEmail: boolean;
   cPass: string;
-  bCheck:boolean;
+  bCheck: boolean;
 }

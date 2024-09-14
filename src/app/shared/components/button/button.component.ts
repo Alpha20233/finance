@@ -33,5 +33,4 @@ export class ButtonComponent {
   ngOnInit(): void {
     this.getClassName.set(this.mode[this.type] ?? this.mode['normal']);
   }
-
 }

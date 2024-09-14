@@ -29,7 +29,7 @@ body {
     th {
       padding: 0.25rem !important;
 
-      @media only screen and (max-width:425px) {
+      @media only screen and (max-width: 425px) {
         padding: 0.1rem !important;
       }
     }
@@ -37,7 +37,7 @@ body {
     td span {
       font-size: 12px !important;
 
-      @media only screen and (max-width:425px) {
+      @media only screen and (max-width: 425px) {
         cursor: none !important;
         box-shadow: none !important;
       }
@@ -46,7 +46,8 @@ body {
 }
 
 //primeng Classes
-@layer primeng {}
+@layer primeng {
+}
 
 //Tailwind classes
 @tailwind base;
@@ -79,7 +80,6 @@ body {
 .icon::before {
   content: var(--iconUnitCode);
 }
-
 
 body {
   --sb-track-color: #ffffff;

@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import {
@@ -12,6 +12,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { signin } from '../../models/auth.interface';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { RouterLink } from '@angular/router';
+import { CommService } from '../../../shared/services/common/comm.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,6 +26,7 @@ import { RouterLink } from '@angular/router';
     FormsModule,
     ButtonComponent,
     RouterLink,
+    AsyncPipe,
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
@@ -35,7 +37,7 @@ export class SignInComponent {
   checked = signal<boolean>(true);
   form_submit = signal<boolean>(false);
 
-  constructor() {}
+  constructor(public readonly comm: CommService) {}
 
   ngOnInit() {
     this.frm = new FormGroup({
