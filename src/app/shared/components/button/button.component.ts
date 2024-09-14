@@ -15,17 +15,17 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class ButtonComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
-  type: InputSignal<string> = input<string>('normal')
+  type: InputSignal<string> = input<string>('normal');
 
   public readonly mode: { [key: string]: string } = {
     "normal": 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
-    "disabled": 'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
+    "disabled":
+      'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

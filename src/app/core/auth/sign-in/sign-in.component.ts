@@ -1,5 +1,10 @@
 import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, model, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  model,
+  signal,
+} from '@angular/core';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import {
   FormControl,
@@ -39,7 +44,7 @@ export class SignInComponent {
 
   constructor(public readonly comm: CommService) {}
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.frm = new FormGroup({
       cEmail: new FormControl('', [
         Validators.required,
@@ -53,7 +58,7 @@ export class SignInComponent {
 
   submit() {
     this.form_submit.set(true);
-    if(this.frm.invalid) return;
+    if (this.frm.invalid) return;
     const formData: signin = this.frm.value;
     console.warn(formData);
   }

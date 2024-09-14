@@ -13,5 +13,4 @@ export class CommService {
       .observe([Breakpoints.Handset])
       .pipe(map((result) => result.matches));
   }
-  
 }

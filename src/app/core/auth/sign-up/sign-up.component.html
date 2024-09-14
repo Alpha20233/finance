@@ -1,6 +1,6 @@
 <div class="tw-grid tw-h-full tw-w-full tw-grid-cols-1 xl:tw-grid-cols-2">
   <form
-    class="tw-col-span-1 tw-flex tw-h-full tw-flex-col tw-gap-y-4 xl:tw-overflow-hidden tw-overflow-auto tw-bg-white xl:tw-p-5 tw-p-3 md:tw-gap-y-5 xl:tw-gap-y-2"
+    class="tw-col-span-1 tw-flex tw-h-full tw-flex-col tw-gap-y-4 tw-overflow-auto tw-bg-white tw-p-3 md:tw-gap-y-5 xl:tw-gap-y-2 xl:tw-overflow-hidden xl:tw-p-5"
     [formGroup]="frm"
   >
     <div class="xl:tw-cursor-pointer">
@@ -31,7 +31,7 @@
     </div>
 
     <div
-      class="tw-flex xl:tw-h-[calc(100%_-_46px)] xl:tw-overflow-auto tw-h-auto tw-flex-col tw-justify-start tw-gap-y-5 tw-p-1 max-md:tw-mb-12 max-sm:tw-mb-4 xl:tw-mx-auto xl:tw-min-w-[600px] xl:tw-gap-y-6 xl:tw-p-16"
+      class="tw-flex tw-h-auto tw-flex-col tw-justify-start tw-gap-y-5 tw-p-1 max-md:tw-mb-12 max-sm:tw-mb-4 xl:tw-mx-auto xl:tw-h-[calc(100%_-_46px)] xl:tw-min-w-[600px] xl:tw-gap-y-6 xl:tw-overflow-auto xl:tw-p-16"
     >
       <div>
         <h3 class="tw-m-0 tw-text-2xl tw-font-normal">Create a new account</h3>
@@ -136,13 +136,15 @@
             : 'xl:tw-cursor-pointer tw-text-sm tw-select-none'
         "
         label="I agree to Terms & privacy"
-        [ngModel]="checked()" (ngModelChange)="checked.set($event)"
+        [ngModel]="checked()"
+        (ngModelChange)="checked.set($event)"
         [ngModelOptions]="{ standalone: true }"
       >
       </p-checkbox>
 
-      
-      <app-button #btn type="normal" (click)="!btn.disabled() && submit()">Sign up</app-button>
+      <app-button #btn type="normal" (click)="!btn.disabled() && submit()"
+        >Sign up</app-button
+      >
 
       <p class="tw-m-0 tw-select-none tw-text-sm">
         Already have an account ?
@@ -154,12 +156,12 @@
       </p>
     </div>
   </form>
-  
+
   @if (!(this.comm.isMobile() | async)) {
     <div
       class="tw-col-span-1 tw-m-4 tw-hidden tw-h-[calc(100%_-_35px)] tw-overflow-hidden tw-rounded-2xl tw-bg-[#314AE3] xl:tw-inline-block"
     >
-      <picture class="tw-relative tw-mx-auto tw-block tw-h-full ">
+      <picture class="tw-relative tw-mx-auto tw-block tw-h-full">
         <img
           ngSrc="/images/login.webp"
           draggable="false"

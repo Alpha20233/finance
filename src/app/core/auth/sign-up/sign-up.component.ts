@@ -1,5 +1,10 @@
 import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, model, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  model,
+  signal,
+} from '@angular/core';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import {
@@ -40,7 +45,7 @@ export class SignUpComponent {
   public checked = model<boolean>(false);
   public form_submit = signal<boolean>(false);
 
-  constructor(public readonly comm: CommService) { }
+  constructor(public readonly comm: CommService) {}
 
   ngOnInit(): void {
     this.frm = new FormGroup({

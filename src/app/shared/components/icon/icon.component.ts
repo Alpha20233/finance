@@ -23,9 +23,9 @@ export class IconComponent {
   public readonly iconName = signal<string>('');
 
   iconList: { [key: string]: string } = {
-    "eye": '\uE000',
-    "eye-off": '\uE001',
-    "calendar": '\uE002',
+    'eye': '\uE000',
+    'eye-off': '\uE001',
+    'calendar': '\uE002',
   };
 
   constructor() {}
