@@ -5,8 +5,9 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { RouterLink } from '@angular/router';
-import { DatepickerComponent } from '../../../shared/components/datepicker/datepicker.component';
+
 import { signup } from '../../models/auth.interface';
+import { DatepickerComponent } from '../../../shared/components/datepicker/datepicker.component';
 
 
 @Component({
