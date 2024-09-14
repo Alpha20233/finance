@@ -2,9 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   input,
-  Input,
   InputSignal,
   signal,
 } from '@angular/core';

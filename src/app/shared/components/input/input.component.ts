@@ -4,7 +4,6 @@ import {
   Component,
   forwardRef,
   input,
-  Input,
   InputSignal,
   signal,
 } from '@angular/core';

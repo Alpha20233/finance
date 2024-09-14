@@ -1,7 +1,7 @@
 <div class="tw-flex tw-flex-col tw-items-start tw-gap-y-2">
   <!--Date Input label-->
   <label [attr.for]="datLabel()" class="tw-text-sm"
-    >{{ "Date of birth" }}
+    >{{ datLabel() }}
     @if (isRequired()) {
       <span class="tw-text-red-500">*</span>
     }
