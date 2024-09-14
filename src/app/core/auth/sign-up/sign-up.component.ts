@@ -6,6 +6,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { RouterLink } from '@angular/router';
 import { DatepickerComponent } from '../../../shared/components/datepicker/datepicker.component';
+import { signup } from '../../models/auth.interface';
 
 
 @Component({
@@ -40,6 +41,6 @@ export class SignUpComponent {
 
   submit() {
     this.form_submit.set(true);
-    const formData = this.frm.value;
+    const formData:signup = this.frm.value;
   }
 }

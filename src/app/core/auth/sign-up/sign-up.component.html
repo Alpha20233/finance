@@ -56,7 +56,7 @@
       }" validText="Enter your fullname"></app-input>
 
 
-      <datepicker></datepicker>
+      <datepicker datLabel="Date of birth" [isRequired]="true" (date)="frm.get('dDob')?.setValue($event)" validText="Enter your date of birth" [isValid]="{cond1:frm.get('dDob')?.hasError('required') ?? false,form_submit:form_submit()}"></datepicker>
 
       <app-input formControlName="cEmail" inpLabel="Email" [isRequired]="true" class="tw-col-span-1" [maxLength]="80"
         placeholder="Enter your email address" [isValid]="{
@@ -73,10 +73,12 @@
           form_submit: this.form_submit(),
         }" validText="Enter your password"></app-input>
 
-      <p-checkbox [binary]="true" inputId="binary" class="tw-select-none"
-        [labelStyleClass]="checked == false && form_submit() ? 'tw-text-red-500 tw-cursor-pointer tw-text-sm' :'tw-cursor-pointer tw-text-sm'"
+      <p-checkbox [binary]="true" inputId="binary" 
+        [labelStyleClass]="checked == false && form_submit() ? 'tw-text-red-500 tw-cursor-pointer tw-text-sm' :'tw-cursor-pointer tw-text-sm '"
         label="I agree to Terms & privacy" [(ngModel)]="checked" [ngModelOptions]="{ standalone: true }">
       </p-checkbox>
+
+
       <app-button type="normal" (click)="submit()">Sign up</app-button>
 
       <p class="tw-m-0 tw-select-none tw-text-sm">

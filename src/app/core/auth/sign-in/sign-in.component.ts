@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
-import { signIn } from '../../models/auth.interface';
+import { signin } from '../../models/auth.interface';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { RouterLink } from '@angular/router';
 
@@ -51,7 +51,7 @@ export class SignInComponent {
 
   submit() {
     this.form_submit.set(true);
-    const formData: signIn = this.frm.value;
+    const formData: signin = this.frm.value;
     console.warn(formData);
   }
 }

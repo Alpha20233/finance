@@ -9,7 +9,15 @@ export interface validCond {
   form_submit: boolean;
 }
 
-export interface signIn {
+export interface signin {
+  cEmail: string;
+  cPass: string;
+}
+
+export interface signup{
+  cName:string;
+  dDob:string | Date;
   cEmail: boolean;
   cPass: string;
+  bCheck:boolean;
 }

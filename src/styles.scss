@@ -20,8 +20,19 @@ body {
 
 //Primeng Reset classes
 @layer reset {
-  .p-disabled {
-    opacity: 1;
+  .p-checkbox-box,.p-checkbox-label{
+      opacity: 1 !important;
+    }
+
+
+
+  .p-datepicker{
+    td span{
+      @media only screen and (max-width:425px) {
+        cursor: none !important;
+        box-shadow: none !important;
+      }
+    }
   }
 }
 
@@ -50,7 +61,7 @@ body {
   font: normal normal normal 1em/1 var(--iconType);
   color: inherit;
   flex-shrink: 0;
-  line-height: 1;
+  line-height: 1.2;
   max-width: initial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -88,3 +99,5 @@ body {
                      var(--sb-track-color);
   }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
