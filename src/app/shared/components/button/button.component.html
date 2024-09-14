@@ -1,6 +1,6 @@
 <p-button
-  [disabled]="disabled"
-  [styleClass]="disabled ? mode.disabled : getClassName"
+  [disabled]="disabled()"
+  [styleClass]="disabled() ? mode.disabled : getClassName()"
 >
   <ng-content></ng-content>
 </p-button>

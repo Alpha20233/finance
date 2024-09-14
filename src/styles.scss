@@ -60,3 +60,31 @@ body {
 .icon::before {
   content: var(--iconUnitCode);
 }
+
+
+body {
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #e8e8e8;
+  --sb-size: 6px;
+}
+
+::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 15px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}

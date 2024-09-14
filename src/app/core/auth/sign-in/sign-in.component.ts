@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
 })
 export class SignInComponent {
   frm!: FormGroup;
-  checked: boolean = true;
+  checked = signal<boolean>(true);
   form_submit = signal<boolean>(false);
 
   constructor() {}

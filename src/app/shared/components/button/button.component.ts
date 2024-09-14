@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  signal,
   SimpleChanges,
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
@@ -16,8 +17,8 @@ import { ButtonModule } from 'primeng/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() disabled: boolean = false;
-  @Input() styleClass: keyof typeof this.mode = 'normal';
+  @Input() disabled = signal<boolean>(false);
+  @Input() type: keyof typeof this.mode = 'normal';
 
   public readonly mode = {
     normal: 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
@@ -25,15 +26,12 @@ export class ButtonComponent {
       'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
   };
 
-  public getClassName: string = '';
+  public getClassName = signal<string>('');
 
   constructor() {}
 
   ngOnInit(): void {
-    this.getClass();
+    this.getClassName.set(this.mode[this.type] ?? this.mode['normal']);
   }
 
-  private getClass(): void {
-    this.getClassName = this.mode[this.styleClass] ?? this.mode['normal'];
-  }
 }

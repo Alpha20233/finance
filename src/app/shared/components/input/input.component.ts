@@ -2,13 +2,11 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   forwardRef,
+  input,
   Input,
-  OnChanges,
-  Output,
+  InputSignal,
   signal,
-  SimpleChanges,
 } from '@angular/core';
 import { icon, validCond } from '../../../core/models/auth.interface';
 import {
@@ -33,32 +31,30 @@ import { IconComponent } from '../icon/icon.component';
     },
   ],
 })
+
 export class InputComponent implements ControlValueAccessor {
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
-  @Input() readonly: boolean = false;
-  @Input() disabled: boolean = false;
-  @Input() isRequired: boolean = false;
-  @Input() inpLabel: string = '';
-  @Input() value: string = '';
-  @Input() isValid: validCond = {
-    cond1: false,
-    cond2: false,
-    form_submit: false,
-  };
-  @Input() validText: string = '';
-  @Input() validText2: string = '';
-  @Input() icon: icon = { name: '', type: 'primary' };
-  @Input() maxLength: number = 50;
+
+  type:InputSignal<string> = input<string>('text');
+  inpLabel:InputSignal<string> = input.required<string>();
+  placeholder:InputSignal<string> = input.required<string>();
+  readonly:InputSignal<boolean> = input<boolean>(false);
+  disabled:InputSignal<boolean> = input<boolean>(false);
+  isRequired:InputSignal<boolean> = input<boolean>(false);
+  // value:InputSignal<string | number> = input<string | number>('');
+  validText:InputSignal<string> = input<string>('');
+  validText2:InputSignal<string> = input<string>('');
+  maxLength:InputSignal<number> = input<number>(50);
+  isValid:InputSignal<validCond> = input<validCond>({cond1:false,cond2:false,form_submit:false})
+  icon:InputSignal<icon> = input<icon>({name: '', type: 'primary'})
 
   eyeToggle = signal<boolean>(false);
-  inptValue: string = '';
+  inptValue = signal<string>('');
 
-  onChange: (value: string) => void = () => {};
-  onTouched: () => void = () => {};
+  onChange: (value: string) => void = () => { };
+  onTouched: () => void = () => { };
 
   writeValue(value: string): void {
-    this.inptValue = value;
+    this.inptValue.set(value);
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -70,7 +66,7 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   onInputChange(value: string): void {
-    this.inptValue = value;
+    this.inptValue.set(value);
     this.onChange(value);
   }
 
