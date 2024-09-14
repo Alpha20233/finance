@@ -1,14 +1,14 @@
 import { Component, input, InputSignal, output, OutputOptions, signal, ViewChild } from '@angular/core';
 import { Calendar, CalendarModule } from 'primeng/calendar';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout'
-import { LowerCasePipe } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 import { validCond } from '../../../core/models/auth.interface';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'datepicker',
   standalone: true,
-  imports: [CalendarModule,LowerCasePipe,IconComponent],
+  imports: [CalendarModule,LowerCasePipe,IconComponent,CommonModule],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss'
 })

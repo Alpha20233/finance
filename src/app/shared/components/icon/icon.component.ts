@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, Input, InputSignal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, input, Input, InputSignal, signal } from '@angular/core';
 
 @Component({
   selector: 'icon',
@@ -12,8 +12,9 @@ import { ChangeDetectionStrategy, Component, input, Input, InputSignal, signal }
 export class IconComponent {
   name:InputSignal<string> = input.required<string>();
   type:InputSignal<string> = input<string>('primary');
+  addCls:InputSignal<string> = input<string>('');
 
-  public iconName = signal<string>('');
+  public readonly iconName = signal<string>('');
 
   iconList: { [key: string]: string } = {
     'eye': '\uE000',

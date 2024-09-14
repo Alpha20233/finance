@@ -14,7 +14,7 @@
   <div class="tw-relative tw-w-full">
     <input
       [attr.id]="inpLabel()"
-      [type]="eyeToggle() ? 'text' : type"
+      [type]="eyeToggle() ? 'text' : type()"
       [placeholder]="placeholder()"
       [disabled]="disabled()"
       [readonly]="readonly()"
@@ -25,7 +25,7 @@
       (blur)="onBlur()"
       class="tw-azure-indigo-600 tw-w-full tw-rounded-xl tw-border-2 tw-border-solid tw-border-stroke-100 tw-p-2 tw-px-4 tw-outline-none tw-ring-offset-2 tw-transition-all tw-duration-200 tw-ease-in focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200 xl:tw-cursor-pointer"
       [ngClass]="{
-        'tw-pr-10 xl:tw-pr-16': icon().name,
+        'tw-pr-12 xl:tw-pr-14': icon().name,
         'tw-pointer-events-none tw-border-none placeholder:tw-select-none':
           disabled(),
         'focus:tw-border-stroke-100 focus:tw-ring-0 focus:tw-ring-transparent':
@@ -33,6 +33,7 @@
       }"
     />
 
+    
     @if (icon().name && icon().type) {
       <span
         class="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-items-center tw-pr-5 tw-transition-all tw-duration-200 tw-ease-in"
@@ -41,12 +42,14 @@
           <icon
             [name]="icon().name"
             [type]="icon().type ?? 'primary'"
+            addCls="tw-mt-[0.3rem] tw-text-slate-500"
             (click)="eyeToggle.set(false)"
           ></icon>
         } @else if (!eyeToggle()) {
           <icon
             name="eye-off"
             [type]="icon().type ?? 'primary'"
+             addCls="tw-mt-[0.3rem] tw-text-slate-500"
             (click)="eyeToggle.set(true)"
           ></icon>
         }

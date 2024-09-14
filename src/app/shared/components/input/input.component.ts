@@ -54,7 +54,7 @@ export class InputComponent implements ControlValueAccessor {
   onTouched: () => void = () => { };
 
   writeValue(value: string): void {
-    this.inptValue.set(value);
+    this.inptValue.set(value.trim());
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -66,8 +66,8 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   onInputChange(value: string): void {
-    this.inptValue.set(value);
-    this.onChange(value);
+    this.inptValue.set(value.trim());
+    this.onChange(value.trim());
   }
 
   onBlur(): void {

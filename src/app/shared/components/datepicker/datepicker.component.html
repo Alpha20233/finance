@@ -9,18 +9,18 @@
 
     <!--Prime ng Calendar -->
     <div class="tw-w-full tw-relative">
-        <p-calendar  #calendar readonlyInput [maxDate]="max()" [touchUI]="isMobile()" dateFormat="dd/mm/yy" 
+        <p-calendar appendTo="body" [disabled]="disabled()"  #calendar readonlyInput [maxDate]="max()" [touchUI]="isMobile()" dateFormat="dd/mm/yy" 
             (onSelect)="valChang($event)" [placeholder]="'Enter your ' + (datLabel() | lowercase)"
             styleClass="tw-w-full xl:tw-cursor-pointer "
             inputStyleClass=" tw-p-[0.4rem] tw-text-sm tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2 tw-transition-all tw-duration-200 tw-ease-in focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200 placeholder:tw-text-[13px] placeholder:tw-text-slate-500 tw-px-4"
             [iconDisplay]="'input'" [showIcon]="false" inputId="icondisplay" />
  
-        <icon name="calendar" type="primary" iconAriaLabel="icondisplay"  (click)="openCalendar()"
-            class="tw-absolute tw-right-0 tw-pr-5 tw-h-full tw-flex tw-items-center tw-top-0 tw-justify-center"></icon>
+        <icon name="calendar" type="primary" [addCls]="disabled() ? 'tw-opacity-30' : 'tw-text-slate-500'" (click)="openCalendar()"
+            class="tw-absolute tw-right-0 tw-pr-5 tw-h-full tw-flex tw-items-center tw-top-0 tw-justify-center" ></icon>
     </div>
 
     <!--Validation-->
-    @if (isValid().cond1 && isValid().form_submit) {
+    @if (isValid().cond1 && isValid().form_submit && validText() && !disabled()) {
     <div class="tw-text-sm tw-text-red-500">
         {{ validText() }}
     </div>

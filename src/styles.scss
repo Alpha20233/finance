@@ -20,14 +20,23 @@ body {
 
 //Primeng Reset classes
 @layer reset {
-  .p-checkbox-box,.p-checkbox-label{
-      opacity: 1 !important;
+  .p-checkbox-box {
+    opacity: 1 !important;
+  }
+
+  .p-datepicker {
+    td,
+    th {
+      padding: 0.25rem !important;
+
+      @media only screen and (max-width:425px) {
+        padding: 0.1rem !important;
+      }
     }
 
+    td span {
+      font-size: 12px !important;
 
-
-  .p-datepicker{
-    td span{
       @media only screen and (max-width:425px) {
         cursor: none !important;
         box-shadow: none !important;
@@ -37,8 +46,7 @@ body {
 }
 
 //primeng Classes
-@layer primeng {
-}
+@layer primeng {}
 
 //Tailwind classes
 @tailwind base;
@@ -95,9 +103,16 @@ body {
 
 @supports not selector(::-webkit-scrollbar) {
   body {
-      scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
