@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: "tw-",
-  important: true,
+  // important: true,
   corePlugins: {
     preflight: false, // Disables Tailwind’s base resets
   },
