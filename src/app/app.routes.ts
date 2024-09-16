@@ -13,6 +13,9 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/modules/dashboard/dashboard.module').then((mod) => mod.DashboardModule),
+    loadChildren: () =>
+      import('./dashboard/modules/dashboard/dashboard.module').then(
+        (mod) => mod.DashboardModule,
+      ),
   },
 ];

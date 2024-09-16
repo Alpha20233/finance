@@ -16,14 +16,13 @@ import {
   styleUrl: './icon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class IconComponent {
-  name:InputSignal<string> = input.required<string>();
-  type:InputSignal<string> = input<string>('primary');
-  addCls:InputSignal<string> = input<string>('');
+  name: InputSignal<string> = input.required<string>();
+  type: InputSignal<string> = input<string>('primary');
+  addCls: InputSignal<string> = input<string>('');
 
   public readonly iconName = computed(() => {
-    return `'${this.iconList[this.name()]}'`
+    return `'${this.iconList[this.name()]}'`;
   });
 
   iconList: { [key: string]: string } = {
@@ -32,5 +31,4 @@ export class IconComponent {
     'calendar': '\uE002',
     'logout': '\uE003',
   };
-
 }

@@ -21,4 +21,3 @@ export interface signup {
   cPass: string;
   bCheck: boolean;
 }
-

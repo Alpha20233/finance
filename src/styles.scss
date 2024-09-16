@@ -25,7 +25,6 @@ body {
   }
 
   .p-datepicker {
-
     td,
     th {
       padding: 0.25rem !important;
@@ -65,27 +64,28 @@ body {
 
   p-dropdown {
     .p-inputwrapper {
-      .p-inputtext ,.p-dropdown-trigger-icon{
+      .p-inputtext,
+      .p-dropdown-trigger-icon {
         color: white !important;
         padding: 0 !important;
         font-size: 13px !important;
         align-items: center;
         display: flex;
       }
-      .p-dropdown-trigger{
+      .p-dropdown-trigger {
         justify-content: end !important;
-        .p-dropdown-trigger-icon{
+        .p-dropdown-trigger-icon {
           width: 12px !important;
           height: 12px !important;
         }
       }
     }
-
   }
 }
 
 //primeng Classes
-@layer primeng {}
+@layer primeng {
+}
 
 //Tailwind classes
 @tailwind base;

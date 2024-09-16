@@ -15,7 +15,7 @@
       #calendar
       readonlyInput
       [maxDate]="max()"
-      [touchUI]="(this.comm.isMobile() | async)"
+      [touchUI]="this.comm.isMobile() | async"
       dateFormat="dd/mm/yy"
       (onSelect)="valChang($event)"
       [placeholder]="'Enter your ' + (datLabel() | lowercase)"

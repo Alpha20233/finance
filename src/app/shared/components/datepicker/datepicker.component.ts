@@ -18,7 +18,13 @@ import { CommService } from '../../services/common/comm.service';
 @Component({
   selector: 'datepicker',
   standalone: true,
-  imports: [CalendarModule, LowerCasePipe, IconComponent, CommonModule, AsyncPipe],
+  imports: [
+    CalendarModule,
+    LowerCasePipe,
+    IconComponent,
+    CommonModule,
+    AsyncPipe,
+  ],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +32,10 @@ import { CommService } from '../../services/common/comm.service';
 export class DatepickerComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);
-  isValid: InputSignal<validCond> = input<validCond>({ cond1: false, form_submit: false });
+  isValid: InputSignal<validCond> = input<validCond>({
+    cond1: false,
+    form_submit: false,
+  });
   datLabel: InputSignal<string> = input<string>('');
   validText: InputSignal<string> = input<string>('');
   max: InputSignal<Date> = input<Date>(new Date());
@@ -34,10 +43,9 @@ export class DatepickerComponent {
 
   @ViewChild('calendar') calendar!: Calendar;
 
-  constructor(public readonly comm: CommService) { }
+  constructor(public readonly comm: CommService) {}
 
   valChang(value: Date) {
-    debugger;
     this.dateChng.emit(value.toISOString());
   }
 

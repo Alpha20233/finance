@@ -4,35 +4,50 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('../../components/dashboard.component').then((m) => m.DashboardComponent),
+    loadComponent: () =>
+      import('../../components/dashboard.component').then(
+        (m) => m.DashboardComponent,
+      ),
     children: [
       {
         path: '',
         redirectTo: 'overview',
-        pathMatch: 'full' 
+        pathMatch: 'full',
       },
       {
         path: 'overview',
-        loadComponent:()=> import('../../components/childrens/overview/overview.component').then((m) => m.OverviewComponent)
+        loadComponent: () =>
+          import('../../components/childrens/overview/overview.component').then(
+            (m) => m.OverviewComponent,
+          ),
       },
       {
         path: 'transactions',
-        loadComponent:()=> import('../../components/childrens/transactions/transactions.component').then((m) => m.TransactionsComponent)
+        loadComponent: () =>
+          import(
+            '../../components/childrens/transactions/transactions.component'
+          ).then((m) => m.TransactionsComponent),
       },
       {
         path: 'categories',
-        loadComponent:()=> import('../../components/childrens/categories/categories.component').then((m) => m.CategoriesComponent)
+        loadComponent: () =>
+          import(
+            '../../components/childrens/categories/categories.component'
+          ).then((m) => m.CategoriesComponent),
       },
       {
         path: 'settings',
-        loadComponent:()=> import('../../components/childrens/settings/settings.component').then((m) => m.SettingsComponent)
+        loadComponent: () =>
+          import('../../components/childrens/settings/settings.component').then(
+            (m) => m.SettingsComponent,
+          ),
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}
