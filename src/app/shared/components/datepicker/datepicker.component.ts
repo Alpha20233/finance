@@ -1,5 +1,7 @@
 import {
+  ChangeDetectionStrategy,
   Component,
+  effect,
   input,
   InputSignal,
   output,
@@ -8,51 +10,38 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Calendar, CalendarModule } from 'primeng/calendar';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { CommonModule, LowerCasePipe } from '@angular/common';
+import { AsyncPipe, CommonModule, LowerCasePipe } from '@angular/common';
 import { validCond } from '../../../core/models/auth.interface';
 import { IconComponent } from '../icon/icon.component';
 import { CommService } from '../../services/common/comm.service';
-import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'datepicker',
   standalone: true,
-  imports: [CalendarModule, LowerCasePipe, IconComponent, CommonModule],
+  imports: [CalendarModule, LowerCasePipe, IconComponent, CommonModule, AsyncPipe],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);
-  isValid: InputSignal<validCond> = input<validCond>({
-    cond1: false,
-    form_submit: false,
-  });
+  isValid: InputSignal<validCond> = input<validCond>({ cond1: false, form_submit: false });
   datLabel: InputSignal<string> = input<string>('');
   validText: InputSignal<string> = input<string>('');
-  value: InputSignal<string> = input<string>('');
   max: InputSignal<Date> = input<Date>(new Date());
   dateChng = output<string>({ alias: 'date' });
 
-  public readonly isMobile = signal<boolean>(false);
-
   @ViewChild('calendar') calendar!: Calendar;
 
-  constructor(private comm: CommService) {
-    this.comm.isMobile().subscribe((result: boolean) => {
-      this.isMobile.set(result);
-    });
+  constructor(public readonly comm: CommService) { }
+
+  valChang(value: Date) {
+    debugger;
+    this.dateChng.emit(value.toISOString());
   }
 
-  ngOnInit(): void {}
-
-  public valChang(value: any) {
-    this.dateChng.emit(value);
-  }
-
-  public openCalendar() {
-    const calendarInput = this.calendar.inputfieldViewChild?.nativeElement;
-    calendarInput.focus(); // Focus on the input field to trigger the calendar popup
+  openCalendar() {
+    this.calendar.inputfieldViewChild?.nativeElement.focus();
   }
 }

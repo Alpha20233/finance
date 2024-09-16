@@ -25,6 +25,7 @@ body {
   }
 
   .p-datepicker {
+
     td,
     th {
       padding: 0.25rem !important;
@@ -43,11 +44,21 @@ body {
       }
     }
   }
+
+  .p-overlaypanel {
+    margin-top: 18px !important;
+    border-radius: 10px !important;
+    &::before,&::after{
+      left: calc(var(--overlayArrowLeft, 0) + 2.35rem) !important;
+    }
+    .p-overlaypanel-content{
+      padding: 1rem 0.75rem !important;
+    }
+  }
 }
 
 //primeng Classes
-@layer primeng {
-}
+@layer primeng {}
 
 //Tailwind classes
 @tailwind base;

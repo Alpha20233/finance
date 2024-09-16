@@ -15,13 +15,12 @@
       #calendar
       readonlyInput
       [maxDate]="max()"
-      [touchUI]="isMobile()"
+      [touchUI]="(this.comm.isMobile() | async)"
       dateFormat="dd/mm/yy"
       (onSelect)="valChang($event)"
       [placeholder]="'Enter your ' + (datLabel() | lowercase)"
       styleClass="tw-w-full xl:tw-cursor-pointer "
       inputStyleClass=" tw-p-[0.4rem] tw-text-sm tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2 tw-transition-all tw-duration-200 tw-ease-in focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200 placeholder:tw-text-[13px] placeholder:tw-text-slate-500 tw-px-4"
-      [iconDisplay]="'input'"
       [showIcon]="false"
       inputId="icondisplay"
     />

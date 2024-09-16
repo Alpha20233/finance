@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
+  computed,
   input,
   InputSignal,
+  signal,
 } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
@@ -17,15 +21,26 @@ import { ButtonModule } from 'primeng/button';
 })
 export class ButtonComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
-  type: InputSignal<string> = input<string>('normal');
+  active: InputSignal<boolean> = input<boolean>(false);
+  type = input<'solid' | 'light'>('solid');
 
-  public readonly mode: { [key: string]: string } = {
-    "normal": 'tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
-    "disabled":
-      'tw-pointer-events-none tw-w-full tw-justify-center tw-rounded-xl tw-h-10',
-  };
+  private readonly baseClasses = 'tw-w-full tw-justify-center tw-rounded-lg tw-h-10';
+  private readonly lightClasses = 'tw-bg-transparent tw-text-white xl:tw-cursor-pointer tw-transition-all tw-ease-in tw-duration-200 hover:tw-bg-gray-50/20 tw-py-2 tw-px-4 tw-rounded-md tw-border-none tw-ring-0';
+  private readonly activeClasses = '!tw-bg-gray-50/10 tw-ring-0 tw-py-2 tw-px-4 tw-border-none';
 
-  constructor() {}
+  public readonly buttonClasses = computed(() => {
+    const classes = [this.baseClasses];
+    if (this.type() === 'light') classes.push(this.lightClasses);
+    if (this.active()) classes.push(this.activeClasses);
+    if (this.disabled()) classes.push('tw-pointer-events-none');
+    return classes.join(' ');
+  });
 
-  ngOnInit(): void {}
+  constructor(private readonly primengConfig: PrimeNGConfig) {
+  }
+
+  ngOnInit(): void {
+    this.primengConfig.ripple = this.type() !== 'light';
+  }
+
 }

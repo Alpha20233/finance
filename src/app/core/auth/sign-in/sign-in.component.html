@@ -112,14 +112,14 @@
       >
       </p-checkbox>
 
-      <app-button #btn type="normal" (click)="!btn.disabled() && submit()"
+      <app-button #btn type="solid" (click)="!btn.disabled() && submit()"
         >Login</app-button
       >
 
       <p class="tw-m-0 tw-select-none tw-text-sm">
         Don't have an account ?
         <span
-          class="tw-font-medium tw-text-azure-600 xl:tw-cursor-pointer"
+          class="tw-font-medium tw-outline-none tw-text-azure-600 xl:tw-cursor-pointer"
           routerLink="/auth/signup"
           >Sign Up</span
         >
@@ -131,7 +131,7 @@
     <div
       class="tw-col-span-1 tw-m-4 tw-h-[calc(100%_-_35px)] tw-overflow-hidden tw-rounded-2xl tw-bg-[#314AE3] xl:tw-inline-block"
     >
-      <picture class="tw-relative tw-mx-auto tw-block tw-h-full">
+      <div class="tw-relative tw-mx-auto tw-block tw-h-full">
         <img
           ngSrc="/images/login.webp"
           draggable="false"
@@ -141,7 +141,7 @@
           alt="login image"
           class="tw-object-contain"
         />
-      </picture>
+      </div>
     </div>
   }
 </div>

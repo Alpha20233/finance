@@ -16,8 +16,9 @@ export interface signin {
 
 export interface signup {
   cName: string;
-  dDob: string | Date;
+  dDob: string;
   cEmail: boolean;
   cPass: string;
   bCheck: boolean;
 }
+

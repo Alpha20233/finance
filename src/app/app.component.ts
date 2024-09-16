@@ -14,9 +14,9 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'finance';
 
-  constructor(private primengConfig: PrimeNGConfig,public readonly router:Router) {}
+  constructor() {}
 
   ngOnInit() {
-    this.primengConfig.ripple = true;
+  
   }
 }

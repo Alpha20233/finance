@@ -11,4 +11,8 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./core/modules/auth/auth.module').then((mod) => mod.AuthModule),
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/modules/dashboard/dashboard.module').then((mod) => mod.DashboardModule),
+  },
 ];

@@ -1,3 +1,16 @@
-<div class="tw-bg-blue-300 tw-w-full tw-h-full">
-    <p>header works!</p>
+<div class="tw-bg-blue-600 tw-w-full tw-h-48 tw-py-4 tw-px-10">
+    <div class="tw-grid tw-grid-cols-2">
+        <div class="tw-col-span-1 tw-flex tw-gap-x-20 tw-items-center">
+            <h1 class="tw-font-medium tw-text-white ">Finance</h1>
+            <div class="tw-flex tw-items-center tw-gap-x-6 ">
+                @for(n of navList;track n){
+                <app-button [routerLink]="n.link" type="light" [active]="n.isSelect"
+                    (click)="btnSelect(n.name)">{{n.name}}</app-button>
+                }
+            </div>
+        </div>
+        <div class="tw-col-span-1 tw-flex tw-items-center tw-justify-end">
+            <avatar label="deepesh solanki"></avatar>
+        </div>
+    </div>
 </div>
