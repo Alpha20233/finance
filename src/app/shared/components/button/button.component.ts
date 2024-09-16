@@ -24,7 +24,7 @@ export class ButtonComponent {
   active: InputSignal<boolean> = input<boolean>(false);
   type = input<'solid' | 'light'>('solid');
 
-  private readonly baseClasses = 'tw-w-full tw-justify-center tw-rounded-lg tw-h-10';
+  private readonly baseClasses = 'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10';
   private readonly lightClasses = 'tw-bg-transparent tw-text-white xl:tw-cursor-pointer tw-transition-all tw-ease-in tw-duration-200 hover:tw-bg-gray-50/20 tw-py-2 tw-px-4 tw-rounded-md tw-border-none tw-ring-0';
   private readonly activeClasses = '!tw-bg-gray-50/10 tw-ring-0 tw-py-2 tw-px-4 tw-border-none';
 

@@ -1,14 +1,15 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
 import { RouterLink } from '@angular/router';
 import { AvatarComponent } from '../../../../shared/components/avatar/avatar.component';
+import { DropdownComponent } from '../../../../shared/components/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, ButtonComponent,RouterLink,AvatarComponent],
+  imports: [CommonModule, ButtonComponent,RouterLink,AvatarComponent,NgOptimizedImage,DropdownComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush

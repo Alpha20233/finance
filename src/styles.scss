@@ -48,12 +48,39 @@ body {
   .p-overlaypanel {
     margin-top: 18px !important;
     border-radius: 10px !important;
-    &::before,&::after{
+
+    &::before,
+    &::after {
       left: calc(var(--overlayArrowLeft, 0) + 2.35rem) !important;
+
+      @media only screen and (min-width: 1920px) {
+        left: calc(var(--overlayArrowLeft, 0) + 1.25rem) !important;
+      }
     }
-    .p-overlaypanel-content{
-      padding: 1rem 0.75rem !important;
+
+    .p-overlaypanel-content {
+      padding: 1rem 1rem !important;
     }
+  }
+
+  p-dropdown {
+    .p-inputwrapper {
+      .p-inputtext ,.p-dropdown-trigger-icon{
+        color: white !important;
+        padding: 0 !important;
+        font-size: 13px !important;
+        align-items: center;
+        display: flex;
+      }
+      .p-dropdown-trigger{
+        justify-content: end !important;
+        .p-dropdown-trigger-icon{
+          width: 12px !important;
+          height: 12px !important;
+        }
+      }
+    }
+
   }
 }
 
