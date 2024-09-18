@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   model,
+  OnInit,
   signal,
 } from '@angular/core';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -40,7 +41,7 @@ import { CommService } from '../../../shared/services/common/comm.service';
   styleUrl: './sign-up.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit{
   public frm!: FormGroup;
   public checked = model<boolean>(false);
   public form_submit = signal<boolean>(false);

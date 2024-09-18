@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { PrimeNGConfig } from 'primeng/api';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/components/common/header/header.component';
 import { CommonModule } from '@angular/common';
 
@@ -11,10 +10,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'finance';
-
-  constructor() {}
-
-  ngOnInit() {}
 }

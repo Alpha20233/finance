@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
 import { RouterLink } from '@angular/router';

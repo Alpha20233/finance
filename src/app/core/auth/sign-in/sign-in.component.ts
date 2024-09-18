@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   model,
+  OnInit,
   signal,
 } from '@angular/core';
 import { InputComponent } from '../../../shared/components/input/input.component';
@@ -37,7 +38,7 @@ import { CommService } from '../../../shared/services/common/comm.service';
   styleUrl: './sign-in.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit{
   frm!: FormGroup;
   checked = model<boolean>(true);
   form_submit = signal<boolean>(false);

@@ -6,11 +6,12 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CommService {
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   public isMobile(): Observable<boolean> {
     return this.breakpointObserver
       .observe([Breakpoints.Handset])
-      .pipe(map((result) => result.matches));
+      .pipe(map((result) => !result.matches 
+      ));
   }
 }

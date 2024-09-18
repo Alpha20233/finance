@@ -61,10 +61,6 @@ export class AvatarComponent {
 
   constructor(private readonly route: Router) { }
 
-  ngOnInit(): void {
-
-  }
-
   logout(): void {
     this.route.navigate(['/auth/signin']);
   }
