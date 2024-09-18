@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { IconComponent } from '../icon/icon.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'avatar',
@@ -50,7 +51,7 @@ export class AvatarComponent {
     return name.length === 1
       ? name[0].charAt(0).toUpperCase()
       : name[0].charAt(0).toUpperCase() +
-          name[name.length - 1].charAt(0).toUpperCase();
+      name[name.length - 1].charAt(0).toUpperCase();
   });
 
   public readonly backgroundColor = computed(() => {
@@ -58,5 +59,13 @@ export class AvatarComponent {
     return this.colors[index];
   });
 
-  constructor() {}
+  constructor(private readonly route: Router) { }
+
+  ngOnInit(): void {
+
+  }
+
+  logout(): void {
+    this.route.navigate(['/auth/signin']);
+  }
 }

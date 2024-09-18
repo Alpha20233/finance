@@ -15,7 +15,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { InputComponent } from '../../../shared/components/input/input.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { signup } from '../../models/auth.interface';
 import { DatepickerComponent } from '../../../shared/components/datepicker/datepicker.component';
@@ -45,7 +45,7 @@ export class SignUpComponent {
   public checked = model<boolean>(false);
   public form_submit = signal<boolean>(false);
 
-  constructor(public readonly comm: CommService) {}
+  constructor(public readonly comm: CommService,private readonly router: Router) { }
 
   ngOnInit(): void {
     this.frm = new FormGroup({
@@ -66,5 +66,10 @@ export class SignUpComponent {
     this.form_submit.set(true);
     if (this.frm.invalid) return;
     const formData: signup = this.frm.value;
+    if (true) {
+      this.form_submit.set(false);
+      this.router.navigate(['/dashboard']);
+      this.frm.reset();
+    }
   }
 }

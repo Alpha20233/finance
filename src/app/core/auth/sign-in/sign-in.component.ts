@@ -16,7 +16,7 @@ import {
 import { CheckboxModule } from 'primeng/checkbox';
 import { signin } from '../../models/auth.interface';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommService } from '../../../shared/services/common/comm.service';
 
 @Component({
@@ -42,7 +42,7 @@ export class SignInComponent {
   checked = model<boolean>(true);
   form_submit = signal<boolean>(false);
 
-  constructor(public readonly comm: CommService) {}
+  constructor(public readonly comm: CommService, private readonly router: Router) { }
 
   ngOnInit(): void {
     this.frm = new FormGroup({
@@ -60,6 +60,10 @@ export class SignInComponent {
     this.form_submit.set(true);
     if (this.frm.invalid) return;
     const formData: signin = this.frm.value;
-    console.warn(formData);
+    if (true) {
+      this.form_submit.set(false);
+      this.router.navigate(['/dashboard']);
+      this.frm.reset();
+    }
   }
 }
