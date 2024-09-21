@@ -1,4 +1,4 @@
-<div class="tw-h-72 tw-w-full tw-bg-blue-600 tw-px-10 tw-py-4">
+<div class="tw-h-80 tw-w-full tw-bg-blue-600 tw-px-10 tw-py-4">
   <div class="tw-mx-auto tw-h-full tw-w-full tw-max-w-screen-2xl">
     <div class="tw-grid tw-grid-cols-2">
       <div class="tw-col-span-1 tw-flex tw-items-center tw-gap-x-20">
@@ -9,7 +9,7 @@
               [routerLink]="n.link"
               type="light"
               [active]="n.isSelect"
-              (click)="btnSelect(n.name)"
+              (click)="setActiveButton(n.name)"
               >{{ n.name }}</app-button
             >
           }

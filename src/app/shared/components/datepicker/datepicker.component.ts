@@ -15,7 +15,7 @@ import { AsyncPipe, CommonModule, LowerCasePipe } from '@angular/common';
 import { validCond } from '../../../core/models/auth.interface';
 import { IconComponent } from '../icon/icon.component';
 import { CommService } from '../../services/common/comm.service';
-import { selectionMode } from '../../../core/models/shared.interface';
+import { selectionMode } from '../../models/shared.interface';
 
 @Component({
   selector: 'datepicker',
