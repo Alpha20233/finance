@@ -24,7 +24,7 @@ export class AvatarComponent {
   size: InputSignal<string> = input('medium');
   label: InputSignal<string> = input('');
 
-  private readonly colors: ReadonlyArray<string> = [
+  private readonly colors: readonly string[] = [
     '#1abc9c',
     '#2ecc71',
     '#3498db',

@@ -25,10 +25,11 @@ export class IconComponent {
     return `'${this.iconList[this.name()]}'`;
   });
 
-  iconList: { [key: string]: string } = {
+  iconList: Record<string, string> = {
     'eye': '\uE000',
     'eye-off': '\uE001',
     'calendar': '\uE002',
     'logout': '\uE003',
+    'chv-d': '\uE004',
   };
 }

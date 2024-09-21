@@ -36,7 +36,7 @@
       <span
         class="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-items-center tw-pr-5 tw-transition-all tw-duration-200 tw-ease-in"
       >
-        @if (icon().name == "eye" && eyeToggle()) {
+        @if (icon().name === "eye" && eyeToggle()) {
           <icon
             [name]="icon().name"
             [type]="icon().type ?? 'primary'"

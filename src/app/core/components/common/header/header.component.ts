@@ -5,6 +5,7 @@ import { header } from '../../../models/header.interface';
 import { RouterLink } from '@angular/router';
 import { AvatarComponent } from '../../../../shared/components/avatar/avatar.component';
 import { DropdownComponent } from '../../../../shared/components/dropdown/dropdown.component';
+import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ import { DropdownComponent } from '../../../../shared/components/dropdown/dropdo
     AvatarComponent,
     NgOptimizedImage,
     DropdownComponent,
+    DatepickerComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

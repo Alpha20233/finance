@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, InputSignal, model, signal } from '@angular/core';
+import { Component, input, InputSignal, model, signal, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 
@@ -10,15 +10,16 @@ import { DropdownModule } from 'primeng/dropdown';
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.scss',
 })
-export class DropdownComponent {
+export class DropdownComponent implements OnInit {
   placeholder: InputSignal<string> = input.required<string>();
 
-  dropList = signal<Array<{ name: string; id: number }>>([
-    { name: 'Checking', id: 1 },
-    { name: 'Saving', id: 2 },
+  dropList = signal<{ name: string; id: number }[]>([
+    { name: 'All account', id: 1 },
+    { name: 'Checking', id: 2 },
+    { name: 'Saving', id: 3 },
   ]);
 
-  selectedCity = model<{ name: string; id: number }>();
+  selectedCity = model<{ name: string; id: number }>({name: 'All account', id: 1});
 
   ngOnInit(): void {}
 

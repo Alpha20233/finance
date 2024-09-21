@@ -25,6 +25,10 @@ body {
   }
 
   .p-datepicker {
+    @media only screen and (min-width: 1024px) {
+      margin-top: 0.5rem !important;
+    }
+
     td,
     th {
       padding: 0.25rem !important;
@@ -64,16 +68,19 @@ body {
 
   p-dropdown {
     .p-inputwrapper {
+
       .p-inputtext,
       .p-dropdown-trigger-icon {
         color: white !important;
         padding: 0 !important;
-        font-size: 13px !important;
+        font-size: 14px !important;
         align-items: center;
         display: flex;
       }
+
       .p-dropdown-trigger {
         justify-content: end !important;
+
         .p-dropdown-trigger-icon {
           width: 12px !important;
           height: 12px !important;
@@ -81,11 +88,47 @@ body {
       }
     }
   }
+
+  .p-dropdown-panel {
+    margin-top: 0.5rem;
+
+    .p-dropdown-items {
+      padding: 0.5rem;
+      border-radius: 0.25rem !important;
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.25rem;
+
+      .p-dropdown-item {
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          border-radius: 0.25rem !important;
+        }
+
+        .p-highlight,
+        .p-focus {
+          border-radius: 0.5rem !important;
+        }
+
+        span {
+          font-weight: 500;
+          font-size: 14px;
+          // color: rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      .p-highlight,
+      .p-focus {
+        border-radius: 0.25rem !important;
+      }
+
+    }
+  }
 }
 
 //primeng Classes
-@layer primeng {
-}
+@layer primeng {}
 
 //Tailwind classes
 @tailwind base;
@@ -102,7 +145,6 @@ body {
   --iconType: "primary";
 }
 
-/* base class */
 .icon {
   display: inline-block;
   font: normal normal normal 1em/1 var(--iconType);
@@ -114,7 +156,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* icons */
 .icon::before {
   content: var(--iconUnitCode);
 }

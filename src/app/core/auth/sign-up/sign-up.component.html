@@ -90,6 +90,7 @@
         [isRequired]="true"
         (date)="frm.get('dDob')?.setValue($event)"
         validText="Enter your date of birth"
+        placeholder="Enter your date of birth"
         [isValid]="{
           cond1: frm.get('dDob')?.hasError('required') ?? false,
           form_submit: form_submit(),

@@ -6,7 +6,7 @@ import {
   computed,
   input,
   InputSignal,
-  signal,
+  signal, OnInit,
 } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -19,13 +19,13 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnInit {
   disabled: InputSignal<boolean> = input<boolean>(false);
   active: InputSignal<boolean> = input<boolean>(false);
   type = input<'solid' | 'light'>('solid');
 
   private readonly baseClasses =
-    'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10';
+    'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10 tw-outline-none';
   private readonly lightClasses =
     'tw-bg-transparent tw-text-white xl:tw-cursor-pointer tw-transition-all tw-ease-in tw-duration-200 hover:tw-bg-gray-50/20 tw-py-2 tw-px-4 tw-rounded-md tw-border-none tw-ring-0';
   private readonly activeClasses =
