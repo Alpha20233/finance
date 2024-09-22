@@ -1,3 +1,10 @@
-<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4">
-    <p>trans-chart works!</p>
+<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-6">
+    <div class="tw-flex tw-items-center tw-justify-between tw-w-full">
+        <span class="tw-font-semibold  tw-text-xl">Transactions</span>
+        <dropdown placeholder="Select.."></dropdown>
+    </div>
+
+    <div>
+        <p-chart type="line" [data]="data" [options]="options" />
+    </div>
 </div>

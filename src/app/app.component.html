@@ -1,3 +1,4 @@
-<div class="tw-bg-gray-100 tw-h-full tw-w-full">
+<div class="tw-bg-gray-100  tw-w-full"
+[ngClass]="route.url === '/auth/signin' || route.url === '/auth/signup' ? 'tw-h-full' : '!tw-h-auto !tw-min-h-full'">
     <router-outlet />
 </div>

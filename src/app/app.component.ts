@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,4 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'finance';
+  
+  constructor(public readonly route:Router) { }
 }
