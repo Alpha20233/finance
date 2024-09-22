@@ -25,6 +25,8 @@ export class BudgetCardComponent {
     return Math.round((this.lastMonAmt() - this.amt()) / this.lastMonAmt() * 100);
   });
 
+  isTrue = signal<boolean>(false);
+
   private destroy$ = new Subject<void>();
   readonly Math = Math;
   readonly currYear = new Date().getFullYear();
@@ -40,8 +42,12 @@ export class BudgetCardComponent {
         this.filtDate.set([dateRange[0], dateRange[1]]);
       }
     });
-    
   }
+  
+  ngAfterViewInit(): void {
+    this.isTrue.set(true);
+  }
+
 
   ngOnDestroy() {
     this.destroy$.next();

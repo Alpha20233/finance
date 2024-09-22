@@ -1,9 +1,10 @@
-@defer(on timer(300ms)) {
+@defer(on timer(300ms);when isTrue) {
+
 <div class="tw-bg-white tw-p-4 tw-max-w-96 tw-min-w-full tw-rounded-md tw-flex tw-flex-col tw-gap-y-4"
     [ngClass]="addCls()">
     <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-gap-x-3">
         <div class="tw-flex tw-flex-col tw-gap-y-1">
-            <span class="tw-text-lg tw-font-semibold" >
+            <span class="tw-text-lg tw-font-semibold">
                 {{title()}}
             </span>
             <span class="tw-text-xs tw-font-medium tw-text-gray-400">
@@ -24,12 +25,14 @@
 
 
     <div class="*:tw-m-0">
-        <h3 class=" tw-font-semibold" [countUp]="amt()" [options]="{ enableScrollSpy: true ,duration:2}" ></h3>
+        <h3 class=" tw-font-semibold" [countUp]="amt()" [options]="{ enableScrollSpy: true ,duration:2,prefix:'₹'}">
+        </h3>
         <p class="tw-text-xs  tw-font-medium"
             [ngClass]="{'tw-text-green-600':periodCompaPercent() > 0,'tw-text-red-600' : periodCompaPercent() < 0}">{{
             periodCompaPercent() }}% from last month </p>
     </div>
 </div>
+
 }@placeholder {
 <div class="tw-bg-white tw-p-4 tw-max-w-96 tw-min-w-full tw-rounded-md tw-flex tw-flex-col tw-gap-y-4 tw-min-h-[140px]">
     <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-gap-x-3 ">
@@ -53,4 +56,3 @@
     </div>
 </div>
 }
-
