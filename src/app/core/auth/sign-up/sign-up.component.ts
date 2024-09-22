@@ -65,6 +65,8 @@ export class SignUpComponent implements OnInit{
 
   submit() {
     this.form_submit.set(true);
+    console.warn('foprm', this.frm.value);
+    
     if (this.frm.invalid) return;
     const formData: signup = this.frm.value;
     if (true) {

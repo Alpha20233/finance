@@ -16,6 +16,7 @@ import { validCond } from '../../../core/models/auth.interface';
 import { IconComponent } from '../icon/icon.component';
 import { CommService } from '../../services/common/comm.service';
 import { selectionMode } from '../../models/shared.interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'datepicker',
@@ -26,6 +27,7 @@ import { selectionMode } from '../../models/shared.interface';
     IconComponent,
     CommonModule,
     AsyncPipe,
+    FormsModule
   ],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
@@ -45,21 +47,34 @@ export class DatepickerComponent {
   max: InputSignal<Date> = input<Date>(new Date());
   dateChng = output<string>({ alias: 'date' });
 
-  styleClass = computed(()=>{
+  dateSingleValue = signal<string>('');
+  dateRangeValue = signal<Date[]>([
+    new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate()),
+    new Date()
+  ]);
+
+
+  styleClass = computed(() => {
     const classes = ['!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500'];
-    if(this.selectionMode() === 'single') classes.push(' tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4');
-    if(this.disabled()) classes.push('tw-pointer-events-none');
-    if(this.selectionMode() === 'range') classes.push('tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm');
+    if (this.selectionMode() === 'single') classes.push(' tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4');
+    if (this.disabled()) classes.push('tw-pointer-events-none');
+    if (this.selectionMode() === 'range') classes.push('tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm');
     return classes.join(' ');
   })
-  
+
 
   @ViewChild('calendar') calendar!: Calendar;
 
-  constructor(public readonly comm: CommService) {}
+  constructor(public readonly comm: CommService) { }
 
-  valChang(value: Date) {
-    this.dateChng.emit(value.toISOString());
+  dateChange(value: any) {
+    console.warn('value', value);
+    this.dateSingleValue.set(value);
+    if (this.selectionMode() === 'range' && (value[0] !== null && value[1] !== null)) {
+      this.dateRangeValue.set(value);
+      this.comm.updateDate(value);
+    }
+    this.dateChng.emit(value);
   }
 
   openCalendar() {

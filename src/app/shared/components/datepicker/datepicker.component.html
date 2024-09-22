@@ -12,7 +12,7 @@
   <div class="tw-relative tw-w-full">
     <p-calendar appendTo="body" [disabled]="disabled()" #calendar [selectionMode]="selectionMode()" readonlyInput
       [maxDate]="max()" [touchUI]="!(this.comm.isMobile() | async)"
-      [dateFormat]="selectionMode() === 'single' ? 'dd/mm/y' : 'dd M'" (onSelect)="valChang($event)"
+      [dateFormat]="selectionMode() === 'single' ? 'dd/mm/y' : 'dd M'" [ngModel]="selectionMode() === 'single' ? dateSingleValue() : dateRangeValue()" (ngModelChange)="dateChange($event)"
       [placeholder]="placeholder()" styleClass="tw-w-full xl:tw-cursor-pointer " [inputStyleClass]="styleClass()"
       [showIcon]="false" inputId="icondisplay" />
 

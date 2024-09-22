@@ -31,5 +31,8 @@ export class IconComponent {
     'calendar': '\uE002',
     'logout': '\uE003',
     'chv-d': '\uE004',
+    'grph-rise': '\uE005',
+    'grph-down': '\uE006',
+    'bag': '\uE007',
   };
 }

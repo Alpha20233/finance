@@ -5,13 +5,8 @@
         <h1 class="tw-text-2xl tw-font-medium tw-text-white">Finance</h1>
         <div class="tw-flex tw-items-center tw-gap-x-6">
           @for (n of navList; track n) {
-            <app-button
-              [routerLink]="n.link"
-              type="light"
-              [active]="n.isSelect"
-              (click)="setActiveButton(n.name)"
-              >{{ n.name }}</app-button
-            >
+          <app-button [routerLink]="n.link" type="light" [active]="n.isSelect" (click)="setActiveButton(n.name)">{{
+            n.name }}</app-button>
           }
         </div>
       </div>
@@ -22,19 +17,11 @@
 
     <div class="tw-mt-8 tw-flex tw-flex-col tw-gap-y-3">
       <div class="tw-flex tw-flex-col tw-gap-y-1">
-        <h1
-          class="tw-m-0 tw-flex tw-items-center tw-gap-x-3 tw-text-2xl tw-font-medium tw-text-white"
-        >
+        <h1 class="tw-m-0 tw-flex tw-items-center tw-gap-x-3 tw-text-2xl tw-font-medium tw-text-white">
           Welcome Back, deepesh
           <div class="tw-relative tw-h-8 tw-w-8">
-            <img
-              ngSrc="images/dashboard-img/waving-hand.webp"
-              fill
-              decoding="async"
-              draggable="false"
-              class="tw-h-full tw-w-full"
-              alt="hand img"
-            />
+            <img ngSrc="images/dashboard-img/waving-hand.webp" fill decoding="async" draggable="false"
+              class="tw-h-full tw-w-full" alt="hand img" />
           </div>
         </h1>
         <p class="tw-m-0 tw-text-sm tw-font-normal tw-text-azure-50/60">
@@ -44,7 +31,7 @@
 
       <div class="tw-flex tw-items-center tw-gap-x-3">
         <dropdown placeholder="Select.."></dropdown>
-        <datepicker selectionMode="range" placeholder="Select date range"></datepicker>
+        <datepicker selectionMode="range" placeholder="Select date range" ></datepicker>
       </div>
     </div>
   </div>
