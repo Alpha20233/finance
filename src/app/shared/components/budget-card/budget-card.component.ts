@@ -1,5 +1,5 @@
 import { CommonModule, DecimalPipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, input, InputSignal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, InputSignal, OnInit, signal, OnDestroy } from '@angular/core';
 import { budgetTitle } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
 import { single, Subject, takeUntil } from 'rxjs';
@@ -14,7 +14,7 @@ import { CountUpModule } from 'ngx-countup';
   styleUrl: './budget-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BudgetCardComponent {
+export class BudgetCardComponent implements OnInit, OnDestroy {
   title: InputSignal<budgetTitle> = input.required<budgetTitle>();
   amt: InputSignal<number> = input.required<number>();
   lastMonAmt: InputSignal<number> = input.required<number>();
@@ -25,7 +25,6 @@ export class BudgetCardComponent {
     return Math.round((this.lastMonAmt() - this.amt()) / this.lastMonAmt() * 100);
   });
 
-  isTrue = signal<boolean>(false);
 
   private destroy$ = new Subject<void>();
   readonly Math = Math;
@@ -44,10 +43,6 @@ export class BudgetCardComponent {
     });
   }
   
-  ngAfterViewInit(): void {
-    this.isTrue.set(true);
-  }
-
 
   ngOnDestroy() {
     this.destroy$.next();

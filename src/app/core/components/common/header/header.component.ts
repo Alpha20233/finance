@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
 import { Router, RouterLink } from '@angular/router';
@@ -24,7 +24,7 @@ import { CommService } from '../../../../shared/services/common/comm.service';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public navList: header[] = [
     {
       name: 'Overview',

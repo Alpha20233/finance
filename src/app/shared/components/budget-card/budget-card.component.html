@@ -1,5 +1,4 @@
-@defer(on timer(300ms);when isTrue) {
-
+@defer(on timer(300ms)) {
 <div class="tw-bg-white tw-p-4 tw-max-w-96 tw-min-w-full tw-rounded-md tw-flex tw-flex-col tw-gap-y-4"
     [ngClass]="addCls()">
     <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-gap-x-3">
@@ -14,7 +13,7 @@
         </div>
 
         <div class="tw-relative tw-min-w-10 tw-min-h-10 tw-flex tw-items-center tw-justify-center  tw-rounded-md"
-            [ngClass]="{'tw-bg-azure-100':title()=='Remaining','tw-bg-green-100':title()=='Income','tw-bg-red-100':title()=='Expenses'}">
+            [ngClass]="{'tw-bg-azure-100':title()==='Remaining','tw-bg-green-100':title()==='Income','tw-bg-red-100':title()==='Expenses'}">
             <icon [name]="title() === 'Remaining' ? 'bag' : title() === 'Income' ? 'grph-rise' : 'grph-down' "
                 class="tw-text-2xl "
                 [addCls]="title() === 'Remaining' ? '!tw-text-azure-600 !tw-cursor-auto' : title() === 'Income' ? '!tw-text-green-500 !tw-cursor-auto ' : '!tw-text-red-600 !tw-cursor-auto' ">
@@ -32,7 +31,6 @@
             periodCompaPercent() }}% from last month </p>
     </div>
 </div>
-
 }@placeholder {
 <div class="tw-bg-white tw-p-4 tw-max-w-96 tw-min-w-full tw-rounded-md tw-flex tw-flex-col tw-gap-y-4 tw-min-h-[140px]">
     <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-gap-x-3 ">
