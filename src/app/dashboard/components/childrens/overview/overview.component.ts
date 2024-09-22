@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BudgetCardComponent } from "../../../../shared/components/budget-card/budget-card.component";
 import { CommonModule } from '@angular/common';
 
@@ -8,5 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [BudgetCardComponent,CommonModule],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OverviewComponent {}

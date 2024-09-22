@@ -4,11 +4,12 @@ import { budgetTitle } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
 import { single, Subject, takeUntil } from 'rxjs';
 import { CommService } from '../../services/common/comm.service';
+import { CountUpModule } from 'ngx-countup';
 
 @Component({
   selector: 'budget-card',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, IconComponent],
+  imports: [CommonModule, NgOptimizedImage, IconComponent,CountUpModule],
   templateUrl: './budget-card.component.html',
   styleUrl: './budget-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,6 +29,7 @@ export class BudgetCardComponent {
   readonly Math = Math;
   readonly currYear = new Date().getFullYear();
 
+  finalCount = signal<number>(1000);
   constructor(private readonly comm: CommService) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class BudgetCardComponent {
         this.filtDate.set([dateRange[0], dateRange[1]]);
       }
     });
+    
   }
 
   ngOnDestroy() {
