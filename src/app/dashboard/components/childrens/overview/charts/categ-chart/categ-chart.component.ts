@@ -14,7 +14,7 @@ import { DropdownComponent } from '../../../../../../shared/components/dropdown/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategChartComponent {
-  type = signal<catChartType>('pie')
+  type = signal<catChartType>('doughnut')
   data!: any;
   options!: any;
 
@@ -44,7 +44,7 @@ export class CategChartComponent {
     };
 
     this.options = {
-      // cutout: '60%',
+      cutout: this.type() == 'doughnut' ? '60%' : '',
       plugins: {
         legend: {
           display:false,
