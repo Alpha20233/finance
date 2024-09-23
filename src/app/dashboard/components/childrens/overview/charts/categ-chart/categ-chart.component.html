@@ -1,3 +1,46 @@
-<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4">
-    <p>categ-chart works!</p>
+@defer (on timer(300ms)) {
+<div class="tw-bg-white tw-h-[524px] tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-8">
+    <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pr-3">
+        <span class="tw-font-semibold  tw-text-xl">Categories</span>
+        <dropdown placeholder="Select type.." [dropList]="dropItemList()" [selectItem]="dropItemList()[0]" type="stroke"
+            (dropListSelection)="chartSelection($event)">
+        </dropdown>
+    </div>
+
+    <div class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-h-full tw-items-center tw-gap-y-6">
+        <div class="tw-w-64 tw-h-64 ">
+            <p-chart [type]="type()" [data]="data" [options]="options" />
+        </div>
+        <div class="tw-flex tw-flex-col tw-gap-y-4 tw-flex-wrap tw-justify-center  tw-items-start tw-w-full">
+            @for(c of [0,1,2,3];track c){
+            <div class="tw-flex tw-items-center tw-gap-x-2">
+                <span class="tw-w-2 tw-h-2 tw-bg-blue-500 tw-rounded-full"></span>
+                <span class="tw-text-gray-400 tw-text-sm">Rent <span class="tw-text-black">51%</span></span>
+            </div>
+            }
+        </div>
+    </div>
 </div>
+}@placeholder {
+<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-6">
+    <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pr-3">
+        <span class="tw-min-w-40 tw-h-9 tw-rounded-md tw-animate-pulse  tw-bg-gray-200 "></span>
+        <div class="tw-h-10 tw-rounded-md tw-animate-pulse  tw-min-w-44 tw-bg-gray-200 "></div>
+    </div>
+
+    <div class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-h-full tw-items-center tw-gap-y-6">
+        <div class="tw-w-full tw-rounded-md tw-flex tw-justify-center tw-items-center">
+            <div class="tw-w-64 tw-h-64 tw-rounded-full tw-animate-pulse  tw-bg-gray-200">
+    
+            </div>
+        </div>
+        <div class="tw-flex tw-flex-col tw-gap-y-4 tw-flex-wrap tw-justify-center  tw-items-start tw-w-full">
+            @for(c of [0,1,2,3];track c){
+            <div class="tw-w-full tw-h-5 tw-rounded-md tw-animate-pulse  tw-bg-gray-200">
+                
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}

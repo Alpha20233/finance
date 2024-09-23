@@ -2,6 +2,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", "Arial", sans-serif;
@@ -71,7 +72,7 @@ body {
 
       .p-inputtext,
       .p-dropdown-trigger-icon {
-        color: white !important;
+        color: var(--pIconColor) !important;
         padding: 0 !important;
         font-size: 14px !important;
         align-items: center;
@@ -90,6 +91,7 @@ body {
   }
 
   .p-dropdown-panel {
+
     margin-top: 0.5rem;
 
     .p-dropdown-items {
@@ -125,6 +127,8 @@ body {
 
     }
   }
+
+ 
 }
 
 //primeng Classes
@@ -143,6 +147,7 @@ body {
 :root {
   --iconUnitCode: "\e000";
   --iconType: "primary";
+  --pIconColor: #ffffff;
 }
 
 .icon {

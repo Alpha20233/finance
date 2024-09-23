@@ -34,5 +34,9 @@ export class IconComponent {
     'grph-rise': '\uE005',
     'grph-down': '\uE006',
     'bag': '\uE007',
+    'line-chr': '\uE008',
+    'bar-chr': '\uE009',
+    'pie-chr': '\uE00A',
+    'radial-chr': '\uE00B',
   };
 }
