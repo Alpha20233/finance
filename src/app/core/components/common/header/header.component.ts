@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, output, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output, OnInit, signal } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
 import { Router, RouterLink } from '@angular/router';
@@ -7,6 +7,7 @@ import { AvatarComponent } from '../../../../shared/components/avatar/avatar.com
 import { DropdownComponent } from '../../../../shared/components/dropdown/dropdown.component';
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
 import { CommService } from '../../../../shared/services/common/comm.service';
+import { dropDownList } from '../../../../shared/models/shared.interface';
 
 @Component({
   selector: 'app-header',
@@ -47,6 +48,12 @@ export class HeaderComponent implements OnInit {
       isSelect: false,
     },
   ];
+  
+  dropItemList = signal<dropDownList[]>([
+    { name: 'All account', id: 1 },
+    { name: 'Checking', id: 2 },
+    { name: 'Saving', id: 3 },
+  ]);
 
   constructor(private readonly route: Router,private readonly comm:CommService) { }
 

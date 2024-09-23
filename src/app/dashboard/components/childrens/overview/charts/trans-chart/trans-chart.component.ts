@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { DropdownComponent } from '../../../../../../shared/components/dropdown/dropdown.component';
 import { ChartModule } from 'primeng/chart';
+import { dropDownList } from '../../../../../../shared/models/shared.interface';
 
 @Component({
   selector: 'trans-chart',
@@ -13,8 +14,13 @@ import { ChartModule } from 'primeng/chart';
 })
 export class TransChartComponent {
   data: any;
-
   options: any;
+
+
+  dropItemList = signal<dropDownList[]>([
+    { name: 'Line chart', id: 1 ,icon:'bag'},
+    { name: 'Bar chart', id: 2,icon:'bag' }
+  ]);
 
   ngOnInit() {
     const documentStyle = getComputedStyle(document.documentElement);
@@ -48,7 +54,7 @@ export class TransChartComponent {
       plugins: {
         legend: {
           display: false,
-       
+
         }
       },
       scales: {

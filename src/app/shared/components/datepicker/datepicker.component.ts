@@ -33,6 +33,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './datepicker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class DatepickerComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);

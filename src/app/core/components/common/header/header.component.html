@@ -30,8 +30,9 @@
       </div>
 
       <div class="tw-flex tw-items-center tw-gap-x-3">
-        <dropdown placeholder="Select.."></dropdown>
-        <datepicker selectionMode="range" placeholder="Select date range" ></datepicker>
+        <dropdown placeholder="Select.." [dropList]="dropItemList()" [selectItem]=" { name: 'All account', id: 1 }">
+        </dropdown>
+        <datepicker selectionMode="range" placeholder="Select date range"></datepicker>
       </div>
     </div>
   </div>

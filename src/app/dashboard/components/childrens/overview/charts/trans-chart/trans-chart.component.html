@@ -1,7 +1,7 @@
 <div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-6">
-    <div class="tw-flex tw-items-center tw-justify-between tw-w-full">
+    <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pr-3">
         <span class="tw-font-semibold  tw-text-xl">Transactions</span>
-        <dropdown placeholder="Select.."></dropdown>
+        <dropdown placeholder="Select.." [dropList]="dropItemList()" [selectItem]="{name:'Line chart',id:1,icon:'bag'}" type="stroke"></dropdown>
     </div>
 
     <div>
