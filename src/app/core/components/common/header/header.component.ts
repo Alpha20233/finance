@@ -38,6 +38,11 @@ export class HeaderComponent implements OnInit {
       isSelect: false,
     },
     {
+      name: 'Accounts',
+      link: '/dashboard/accounts',
+      isSelect: false,
+    },
+    {
       name: 'Categories',
       link: '/dashboard/categories',
       isSelect: false,

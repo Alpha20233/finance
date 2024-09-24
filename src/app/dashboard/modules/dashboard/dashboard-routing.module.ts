@@ -29,6 +29,13 @@ const routes: Routes = [
           ).then((m) => m.TransactionsComponent),
       },
       {
+        path: 'accounts',
+        loadComponent: () =>
+          import(
+            '../../components/childrens/accounts/accounts.component'
+          ).then((m) => m.AccountsComponent),
+      },
+      {
         path: 'categories',
         loadComponent: () =>
           import(
