@@ -146,18 +146,33 @@ body {
       box-shadow: none !important;
     }
 
+    .p-datatable-tbody>tr {
+      cursor: pointer;
+
+      &:not(.p-highlight):hover {
+        background-color: #eaeaea54;
+      }
+
+      td {
+        span {
+          padding: 0.25rem 0.65rem;
+        }
+      }
+    }
+
     .p-datatable-thead>tr>th {
       padding: 0.75rem !important;
 
       span {
         padding: 0.25rem 0.65rem;
-        transition: all ease .3s  ;
+        transition: all ease .3s;
 
         &:hover {
           background: #ffffffda;
           color: black !important;
           border-radius: 0.35rem;
-          .p-sortable-column-icon{
+
+          .p-sortable-column-icon {
             color: black !important;
           }
         }
@@ -170,28 +185,51 @@ body {
       color: #6b7280 !important;
       transition: all ease .3s;
     }
+
   }
 
-  .p-menu-overlay{
+  .p-paginator-bottom {
+    padding: 1rem 0;
+
+    .p-paginator-element {
+      display: none !important;
+    }
+  }
+
+  .p-menu-overlay {
     width: 8.5rem;
-    padding: 0.75rem 1rem;
-    .p-menu-list{
+    padding: 0.5rem;
+
+    .p-menu-list {
       display: flex;
       flex-direction: column;
       row-gap: 0.5rem;
-      .p-menuitem{
-        .p-menuitem-content{
+
+      .p-menuitem {
+        .p-menuitem-content {
           border-radius: 0.25rem !important;
         }
-        &:hover{
+
+        &:hover {
           background-color: transparent !important;
         }
       }
-      .p-submenu-header{
+
+      .p-submenu-header {
         display: none !important;
       }
     }
   }
+
+  .p-sidebar-right {
+    width: 26rem !important;
+
+    .p-sidebar-header {
+      align-items: start;
+      margin-top: 0.5rem;
+    }
+  }
+
 }
 
 //primeng Classes

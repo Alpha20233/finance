@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, input, InputSignal, signal, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, input, InputSignal, signal, ViewChild, OnInit } from '@angular/core';
 import { DropdownComponent } from '../../../../../../shared/components/dropdown/dropdown.component';
 import { ChartModule, UIChart } from 'primeng/chart';
 import { dropDownList } from '../../../../../../shared/models/shared.interface';
@@ -13,7 +13,7 @@ import { ChartData, ChartOptions, chartType } from '../../../../../models/dashbo
   styleUrl: './trans-chart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TransChartComponent {
+export class TransChartComponent implements OnInit {
   type = signal<chartType>('line');
   data!: ChartData;
   options!: ChartOptions;

@@ -32,7 +32,14 @@
       <div class="tw-flex tw-items-center tw-gap-x-3">
         <dropdown placeholder="Select.." [dropList]="dropItemList()" [selectItem]="dropItemList()[0]">
         </dropdown>
+        @defer (on timer(150ms)) {
         <datepicker selectionMode="range" placeholder="Select date range"></datepicker>
+        }
+        @placeholder {
+        <div class=" tw-min-w-48 tw-min-h-10  tw-rounded-md tw-animate-pulse  tw-bg-azure-200/50">
+        </div>
+        }
+
       </div>
     </div>
   </div>

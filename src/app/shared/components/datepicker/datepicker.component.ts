@@ -54,12 +54,15 @@ export class DatepickerComponent {
     new Date()
   ]);
 
+  private readonly baseClass = '!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500';
+  private readonly modeSingleClass = 'tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4';
+  private readonly modeRangeClass = 'tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm';
 
   styleClass = computed(() => {
-    const classes = ['!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500'];
-    if (this.selectionMode() === 'single') classes.push(' tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4');
+    const classes = [this.baseClass];
+    if (this.selectionMode() === 'single') classes.push(this.modeSingleClass);
     if (this.disabled()) classes.push('tw-pointer-events-none');
-    if (this.selectionMode() === 'range') classes.push('tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm');
+    if (this.selectionMode() === 'range') classes.push(this.modeRangeClass);
     return classes.join(' ');
   })
 

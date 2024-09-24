@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, OnInit } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { catChartType } from '../../../../../models/dashboard.interface';
 import { dropDownList } from '../../../../../../shared/models/shared.interface';
@@ -13,7 +13,7 @@ import { DropdownComponent } from '../../../../../../shared/components/dropdown/
   styleUrl: './categ-chart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CategChartComponent {
+export class CategChartComponent implements OnInit {
   type = signal<catChartType>('doughnut')
   data!: any;
   options!: any;

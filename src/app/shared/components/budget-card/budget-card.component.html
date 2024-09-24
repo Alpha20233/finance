@@ -1,4 +1,4 @@
-@defer(on timer(300ms)) {
+@defer(on timer(150ms)) {
 <div class="tw-bg-white tw-p-4 tw-max-w-96 tw-min-w-full tw-rounded-md tw-flex tw-flex-col tw-gap-y-4"
     [ngClass]="addCls()">
     <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-gap-x-3">
@@ -7,7 +7,7 @@
                 {{title()}}
             </span>
             <span class="tw-text-xs tw-font-medium tw-text-gray-400">
-                {{ filtDate()[0] | date:'dd MMM' }} - {{ filtDate()[1] | date:'dd MMM' }},&nbsp;{{ filtDate()[0] |
+                {{ filtDate()[0] | date:'dd MMM' }} - {{ filtDate()[1] | date:'dd MMM' }},&nbsp;{{ filtDate()[1] |
                 date:'yyyy' }}
             </span>
         </div>

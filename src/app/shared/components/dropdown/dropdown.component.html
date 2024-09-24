@@ -1,4 +1,4 @@
-@defer (on timer(300ms);when type()==='stroke') {
+@defer (on timer(150ms);when type()==='stroke') {
 <p-dropdown [options]="dropList()" [ngModel]="selectedItemModel()" (ngModelChange)="selcChng($event)" optionLabel="name"
   [placeholder]="placeholder()" [styleClass]="styleClass()"
   [ngStyle]="{'--pIconColor': this.type() === 'solid' ? 'white' : 'lightgray'}">

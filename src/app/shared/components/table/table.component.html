@@ -1,6 +1,8 @@
 <!--Table Component-->
-<p-table [columns]="cols()" [value]="data()"  [paginator]="true"
-[rows]="8">
+
+<p-table #table [columns]="cols()" [value]="data()" [paginator]="true" [rows]="rows()" [first]="first()"
+    [rowHover]="true" (onRowSelect)="selectCount.emit(table.selection.length)"
+    (onRowUnselect)="selectCount.emit(table.selection.length)" (selectionChange)="selectCount.emit(table.selection.length)">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th style="width: 4rem;padding-left: 1rem !important;"><p-tableHeaderCheckbox /></th>
@@ -16,29 +18,46 @@
             }
         </tr>
     </ng-template>
+
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
-            <td s>
+            <td>
                 <p-tableCheckbox [value]="rowData" />
             </td>
-            @for(col of columns;track col.id){
+            @for(col of columns;track col){
             <td>
                 @if(col.field !== 'action') {
-                <span class="tw-text-black tw-text-sm tw-font-medium "
-                    [ngClass]="{'tw-bg-azure-100 !tw-text-azure-500 tw-px-2 tw-py-1 tw-rounded-full tw-text-xs':col.field === 'amt'}">
-                    @if(col.field === 'amt'){
+                <span
+                    class="tw-text-black tw-text-sm tw-font-medium hover:tw-underline  tw-underline-offset-2 tw-transition-all tw-ease-in tw-duration-300"
+                    [ngClass]="{'tw-bg-azure-100 !tw-text-azure-500 tw-px-3 tw-py-1.5 !tw-rounded-full !tw-text-xs':col.field === 'amt' && rowData.amt > 0,'!tw-bg-red-100 !tw-text-red-500 !tw-px-3 !tw-py-1.5 tw-rounded-full tw-text-xs':col.field === 'amt' && rowData.amt < 0}">
+                    @if( col.field === 'amt' && rowData.amt > 0){
                     ₹
-                    }
-                    {{ rowData[col.field]}}
-                </span>
-                } @else {
-                <icon name="more" class="tw-text-lg tw-ml-3" addCls="!tw-text-black" (click)="menu.toggle($event)">
-                </icon>
-                }
+                    }@else if(col.field === 'amt' && rowData.amt < 0){ -₹ } {{ col.field !=='amt' ? rowData[col.field] :
+                        abs(rowData[col.field]) }} </span>
+                        } @else {
+                        <icon name="more" class="tw-text-lg tw-ml-3" addCls="!tw-text-black"
+                            (click)="menu.toggle($event)">
+                        </icon>
+                        }
 
             </td>
             }
         </tr>
+    </ng-template>
+
+    <ng-template pTemplate="paginatorleft">
+        <span class="tw-text-sm"> Showing {{ table?.first ?? 0 + 1 }} to {{ ((table?.first ?? 0) + (table?.rows ?? 0)) >
+            (table?.totalRecords ?? 0) ? (table?.totalRecords ?? 0) : ((table?.first ?? 0) + (table?.rows ?? 0)) }}
+            of {{ table?.totalRecords ?? 0 }} entries</span>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <div class="tw-flex tw-items-center tw-gap-x-3">
+            <app-button type="outline" (click)="prev()" [disabled]="first() === 0"
+                [class.tw-pointer-events-none]="first() === 0">Previous</app-button>
+            <app-button type="outline" (click)="next()"
+                [disabled]="((table?.first ?? 0) + (table?.rows ?? 0)) >= table.totalRecords"
+                [class.tw-pointer-events-none]="((table?.first ?? 0) + (table?.rows ?? 0)) >= table.totalRecords">Next</app-button>
+        </div>
     </ng-template>
 
     <ng-template pTemplate="emptymessage">
@@ -51,12 +70,18 @@
 
 <!--P-mat menu-->
 <div class="tw-static">
-    <p-menu #menu [model]="items" [popup]="true">
+    <p-menu #menu [model]="menuItems" [popup]="true">
         <ng-template pTemplate="item" let-item>
-            <div class="tw-bg-white tw-rounded-md ">
+            <div class="tw-bg-white tw-rounded-md">
                 <span
-                    class="tw-flex tw-items-center tw-gap-x-2 xl:tw-cursor-pointer hover:tw-bg-gray-400/10 tw-px-2 tw-rounded-md ">
-                    <icon [name]="item.icon" addCls="!tw-text-xl"></icon>
+                    class="tw-flex tw-items-center tw-gap-x-2 xl:tw-cursor-pointer hover:tw-bg-gray-400/10 tw-p-2 tw-rounded-md"
+                    (mouseenter)="lottieService.playAnimation(item.label)"
+                    (mouseleave)="lottieService.stopAnimation(item.label)">
+                    <div class="tw-w-6 tw-h-6 xl:tw-cursor-pointer">
+                        <ng-lottie [options]="item.label === 'Edit' ? options[0] : options[1]"
+                            (animationCreated)="lottieService.animationCreated(item.label, $event)">
+                        </ng-lottie>
+                    </div>
                     <span class="tw-text-sm tw-font-medium">{{item.label}}</span>
                 </span>
             </div>
