@@ -1,0 +1,65 @@
+<!--Table Component-->
+<p-table [columns]="cols()" [value]="data()"  [paginator]="true"
+[rows]="8">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 4rem;padding-left: 1rem !important;"><p-tableHeaderCheckbox /></th>
+            @for(col of columns;track col){
+            <th [pSortableColumn]="col.field">
+                <span class="tw-text-sm tw-text-gray-500 tw-font-medium">
+                    {{ col.header }}
+                    @if(col.field !== 'action') {
+                    <p-sortIcon field="code" />
+                    }
+                </span>
+            </th>
+            }
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td s>
+                <p-tableCheckbox [value]="rowData" />
+            </td>
+            @for(col of columns;track col.id){
+            <td>
+                @if(col.field !== 'action') {
+                <span class="tw-text-black tw-text-sm tw-font-medium "
+                    [ngClass]="{'tw-bg-azure-100 !tw-text-azure-500 tw-px-2 tw-py-1 tw-rounded-full tw-text-xs':col.field === 'amt'}">
+                    @if(col.field === 'amt'){
+                    ₹
+                    }
+                    {{ rowData[col.field]}}
+                </span>
+                } @else {
+                <icon name="more" class="tw-text-lg tw-ml-3" addCls="!tw-text-black" (click)="menu.toggle($event)">
+                </icon>
+                }
+
+            </td>
+            }
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td [attr.colspan]="cols().length">No customers found.</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<!--P-mat menu-->
+<div class="tw-static">
+    <p-menu #menu [model]="items" [popup]="true">
+        <ng-template pTemplate="item" let-item>
+            <div class="tw-bg-white tw-rounded-md ">
+                <span
+                    class="tw-flex tw-items-center tw-gap-x-2 xl:tw-cursor-pointer hover:tw-bg-gray-400/10 tw-px-2 tw-rounded-md ">
+                    <icon [name]="item.icon" addCls="!tw-text-xl"></icon>
+                    <span class="tw-text-sm tw-font-medium">{{item.label}}</span>
+                </span>
+            </div>
+        </ng-template>
+    </p-menu>
+</div>

@@ -38,5 +38,8 @@ export class IconComponent {
     'bar-chr': '\uE009',
     'pie-chr': '\uE00A',
     'radial-chr': '\uE00B',
+    'add': '\uE00C',
+    'search': '\uE00D',
+    'more': '\uE00E',
   };
 }
