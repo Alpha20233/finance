@@ -1,15 +1,15 @@
 import { CommonModule, DecimalPipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, input, InputSignal, OnInit, signal, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, InputSignal, OnInit, signal, OnDestroy, ViewChild } from '@angular/core';
 import { budgetTitle } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
-import { single, Subject, takeUntil } from 'rxjs';
+import { count, single, Subject, takeUntil } from 'rxjs';
 import { CommService } from '../../services/common/comm.service';
-import { CountUpModule } from 'ngx-countup';
+import { CountUpDirective, CountUpModule } from 'ngx-countup';
 
 @Component({
   selector: 'budget-card',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, IconComponent,CountUpModule],
+  imports: [CommonModule, NgOptimizedImage, IconComponent, CountUpModule],
   templateUrl: './budget-card.component.html',
   styleUrl: './budget-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,6 +31,7 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
   readonly currYear = new Date().getFullYear();
 
   finalCount = signal<number>(1000);
+
   constructor(private readonly comm: CommService) { }
 
   ngOnInit() {
@@ -42,7 +43,10 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
       }
     });
   }
-  
+
+
+
+
 
   ngOnDestroy() {
     this.destroy$.next();

@@ -24,9 +24,9 @@
 
 
     <div class="*:tw-m-0">
-        <h3 class=" tw-font-semibold" [countUp]="amt()" [options]="{ enableScrollSpy: true ,duration:2,prefix:'₹'}">
+        <h3 class="tw-font-semibold tw-pointer-events-none" [countUp]="amt()" [options]="{ enableScrollSpy: true ,duration:2,prefix:'₹'}">
         </h3>
-        <p class="tw-text-xs  tw-font-medium"
+        <p class="tw-text-xs  tw-font-medium "
             [ngClass]="{'tw-text-green-600':periodCompaPercent() > 0,'tw-text-red-600' : periodCompaPercent() < 0}">{{
             periodCompaPercent() }}% from last month </p>
     </div>
