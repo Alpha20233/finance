@@ -1,5 +1,11 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, output, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  output,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
 import { Router, RouterLink } from '@angular/router';
@@ -19,7 +25,7 @@ import { dropDownList } from '../../../../shared/models/shared.interface';
     AvatarComponent,
     NgOptimizedImage,
     DropdownComponent,
-    DatepickerComponent
+    DatepickerComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -53,14 +59,17 @@ export class HeaderComponent implements OnInit {
       isSelect: false,
     },
   ];
-  
+
   dropItemList = signal<dropDownList[]>([
     { name: 'All account', id: 1 },
     { name: 'Checking', id: 2 },
     { name: 'Saving', id: 3 },
   ]);
 
-  constructor(private readonly route: Router,private readonly comm:CommService) { }
+  constructor(
+    private readonly route: Router,
+    private readonly comm: CommService,
+  ) {}
 
   ngOnInit(): void {
     const routePath = this.route.url.replace('/dashboard/', '');
@@ -78,7 +87,5 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  datChange(date: string) {
-   
-  }
+  datChange(date: string) {}
 }

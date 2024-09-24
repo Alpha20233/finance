@@ -6,7 +6,8 @@ import {
   computed,
   input,
   InputSignal,
-  signal, OnInit,
+  signal,
+  OnInit,
 } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -24,7 +25,7 @@ export class ButtonComponent implements OnInit {
   disabled: InputSignal<boolean> = input<boolean>(false);
   active: InputSignal<boolean> = input<boolean>(false);
   type = input<btnType>('solid');
-  placeSkel = input<string>()
+  placeSkel = input<string>();
 
   private readonly baseClasses =
     'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10 tw-outline-none';
@@ -32,7 +33,8 @@ export class ButtonComponent implements OnInit {
     'tw-bg-transparent tw-text-white xl:tw-cursor-pointer tw-transition-all tw-ease-in tw-duration-200 hover:tw-bg-gray-50/20 tw-py-2 tw-px-4 tw-rounded-md tw-border-none tw-ring-0';
   private readonly activeClasses =
     '!tw-bg-gray-50/10 tw-ring-0 tw-py-2 tw-px-4 tw-border-none';
-  private readonly outlineClasses = 'tw-bg-transparent  tw-border-2 tw-border-solid tw-border-gray-300/50 tw-h-9 !tw-py-1 tw-px-4 tw-rounded-md tw-text-black tw-ring-0 hover:tw-bg-gray-300/10 tw-transition-all tw-ease-in tw-duration-200';
+  private readonly outlineClasses =
+    'tw-bg-transparent  tw-border-2 tw-border-solid tw-border-gray-300/50 tw-h-9 !tw-py-1 tw-px-4 tw-rounded-md tw-text-black tw-ring-0 hover:tw-bg-gray-300/10 tw-transition-all tw-ease-in tw-duration-200';
 
   public readonly buttonClasses = computed(() => {
     const classes = [this.baseClasses];

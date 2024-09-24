@@ -1,21 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'search',
   standalone: true,
-  imports: [CommonModule,IconComponent],
+  imports: [CommonModule, IconComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
   placeholder = input.required<string>();
   inptValue = output<string>();
   maxlength = input<number>(80);
 
-  constructor() { }
+  constructor() {}
 
   inputValue(event: Event) {
     const target = event.target as HTMLInputElement;

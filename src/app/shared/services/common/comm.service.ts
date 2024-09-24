@@ -6,7 +6,7 @@ import { map, Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class CommService {
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   private dateSubject = new Subject<Date>();
   date$ = this.dateSubject.asObservable();
@@ -14,13 +14,10 @@ export class CommService {
   public isMobile(): Observable<boolean> {
     return this.breakpointObserver
       .observe([Breakpoints.Handset])
-      .pipe(map((result) => !result.matches
-      ));
+      .pipe(map((result) => !result.matches));
   }
-
 
   public updateDate(date: Date) {
     this.dateSubject.next(date);
   }
-
 }

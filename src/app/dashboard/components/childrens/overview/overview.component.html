@@ -1,12 +1,27 @@
 <div class="tw-flex tw-flex-col tw-gap-y-6">
-    <div class="tw-grid tw-grid-cols-3 tw-items-center tw-justify-between tw-w-full tw-gap-x-6">
-        <budget-card title="Remaining" addCls="tw-col-span-1" [amt]="6000" [lastMonAmt]="7000"></budget-card>
-        <budget-card title="Income" [amt]="18000" [lastMonAmt]="20000"></budget-card>
-        <budget-card title="Expenses" [amt]="5000" [lastMonAmt]="2000"></budget-card>
-    </div>
+  <div
+    class="tw-grid tw-w-full tw-grid-cols-3 tw-items-center tw-justify-between tw-gap-x-6"
+  >
+    <budget-card
+      title="Remaining"
+      addCls="tw-col-span-1"
+      [amt]="6000"
+      [lastMonAmt]="7000"
+    ></budget-card>
+    <budget-card
+      title="Income"
+      [amt]="18000"
+      [lastMonAmt]="20000"
+    ></budget-card>
+    <budget-card
+      title="Expenses"
+      [amt]="5000"
+      [lastMonAmt]="2000"
+    ></budget-card>
+  </div>
 
-    <div class="tw-grid tw-grid-cols-3 tw-gap-x-6">
-        <trans-chart class="tw-col-span-2"></trans-chart>
-        <categ-chart class="tw-col-span-1"></categ-chart>
-    </div>
+  <div class="tw-grid tw-grid-cols-3 tw-gap-x-6">
+    <trans-chart class="tw-col-span-2"></trans-chart>
+    <categ-chart class="tw-col-span-1"></categ-chart>
+  </div>
 </div>

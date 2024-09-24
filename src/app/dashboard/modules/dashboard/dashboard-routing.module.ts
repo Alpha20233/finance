@@ -31,9 +31,9 @@ const routes: Routes = [
       {
         path: 'accounts',
         loadComponent: () =>
-          import(
-            '../../components/childrens/accounts/accounts.component'
-          ).then((m) => m.AccountsComponent),
+          import('../../components/childrens/accounts/accounts.component').then(
+            (m) => m.AccountsComponent,
+          ),
       },
       {
         path: 'categories',

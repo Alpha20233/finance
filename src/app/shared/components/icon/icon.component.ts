@@ -26,20 +26,20 @@ export class IconComponent {
   });
 
   iconList: Record<string, string> = {
-    'eye': '\uE000',
+    eye: '\uE000',
     'eye-off': '\uE001',
-    'calendar': '\uE002',
-    'logout': '\uE003',
+    calendar: '\uE002',
+    logout: '\uE003',
     'chv-d': '\uE004',
     'grph-rise': '\uE005',
     'grph-down': '\uE006',
-    'bag': '\uE007',
+    bag: '\uE007',
     'line-chr': '\uE008',
     'bar-chr': '\uE009',
     'pie-chr': '\uE00A',
     'radial-chr': '\uE00B',
-    'add': '\uE00C',
-    'search': '\uE00D',
-    'more': '\uE00E',
+    add: '\uE00C',
+    search: '\uE00D',
+    more: '\uE00E',
   };
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BudgetCardComponent } from "../../../../shared/components/budget-card/budget-card.component";
+import { BudgetCardComponent } from '../../../../shared/components/budget-card/budget-card.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

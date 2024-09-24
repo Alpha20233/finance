@@ -1,23 +1,38 @@
-@defer(on timer(150ms)){
-<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-6">
-    <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pr-3">
-        <span class="tw-font-semibold  tw-text-xl">Transactions</span>
-        <dropdown placeholder="Select type.." [dropList]="dropItemList()" [selectItem]="dropItemList()[0]" type="stroke"
-            (dropListSelection)="chartSelection($event)">
-        </dropdown>
+@defer (on timer(150ms)) {
+  <div
+    class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4"
+  >
+    <div class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3">
+      <span class="tw-text-xl tw-font-semibold">Transactions</span>
+      <dropdown
+        placeholder="Select type.."
+        [dropList]="dropItemList()"
+        [selectItem]="dropItemList()[0]"
+        type="stroke"
+        (dropListSelection)="chartSelection($event)"
+      >
+      </dropdown>
     </div>
 
     <div>
-        <p-chart [type]="type()" [data]="data" [options]="options"  />
+      <p-chart [type]="type()" [data]="data" [options]="options" />
     </div>
-</div>
-}@placeholder {
-<div class="tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-flex tw-flex-col tw-gap-y-6">
-    <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pr-3">
-        <span class="tw-min-w-40 tw-h-9 tw-rounded-md tw-animate-pulse  tw-bg-gray-200 "></span>
-        <div class="tw-h-10 tw-rounded-md tw-animate-pulse  tw-min-w-44 tw-bg-gray-200 "></div>
+  </div>
+} @placeholder {
+  <div
+    class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4"
+  >
+    <div class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3">
+      <span
+        class="tw-h-9 tw-min-w-40 tw-animate-pulse tw-rounded-md tw-bg-gray-200"
+      ></span>
+      <div
+        class="tw-h-10 tw-min-w-44 tw-animate-pulse tw-rounded-md tw-bg-gray-200"
+      ></div>
     </div>
 
-    <div class="tw-h-[428px] tw-w-full tw-rounded-md tw-animate-pulse  tw-bg-gray-200"></div>
-</div>
+    <div
+      class="tw-h-[428px] tw-w-full tw-animate-pulse tw-rounded-md tw-bg-gray-200"
+    ></div>
+  </div>
 }

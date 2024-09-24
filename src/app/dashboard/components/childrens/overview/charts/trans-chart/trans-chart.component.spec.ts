@@ -8,9 +8,8 @@ describe('TransChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransChartComponent]
-    })
-    .compileComponents();
+      imports: [TransChartComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TransChartComponent);
     component = fixture.componentInstance;

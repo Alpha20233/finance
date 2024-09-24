@@ -38,12 +38,15 @@ import { CommService } from '../../../shared/services/common/comm.service';
   styleUrl: './sign-in.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignInComponent implements OnInit{
+export class SignInComponent implements OnInit {
   frm!: FormGroup;
   checked = model<boolean>(true);
   form_submit = signal<boolean>(false);
 
-  constructor(public readonly comm: CommService, private readonly router: Router) { }
+  constructor(
+    public readonly comm: CommService,
+    private readonly router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.frm = new FormGroup({

@@ -1,31 +1,45 @@
-@defer (on timer(150ms);when type()==='stroke') {
-<p-dropdown [options]="dropList()" [ngModel]="selectedItemModel()" (ngModelChange)="selcChng($event)" optionLabel="name"
-  [placeholder]="placeholder()" [styleClass]="styleClass()"
-  [ngStyle]="{'--pIconColor': this.type() === 'solid' ? 'white' : 'lightgray'}">
+@defer (on timer(150ms); when type()==='stroke') {
+  <p-dropdown
+    [options]="dropList()"
+    [ngModel]="selectedItemModel()"
+    (ngModelChange)="selcChng($event)"
+    optionLabel="name"
+    [placeholder]="placeholder()"
+    [styleClass]="styleClass()"
+    [ngStyle]="{
+      '--pIconColor': this.type() === 'solid' ? 'white' : 'lightgray',
+    }"
+  >
+    <!--Template fpr item-->
+    <ng-template let-item pTemplate="item">
+      <div class="tw-flex tw-items-center tw-gap-x-3">
+        @if (item.icon) {
+          <icon [name]="item.icon"></icon>
+        }
+        <span>{{ item.name }}</span>
+      </div>
+    </ng-template>
 
-  <!--Template fpr item-->
-  <ng-template let-item pTemplate="item">
-    <div class="tw-flex tw-items-center tw-gap-x-3">
-      @if(item.icon){
-      <icon [name]="item.icon"></icon>
-      }
-      <span>{{ item.name }}</span>
-    </div>
-  </ng-template>
-
-  <!-- Template for selected item -->
-  <ng-template let-item pTemplate="selectedItem">
-    <div class="tw-flex tw-items-center tw-gap-x-2">
-      @if(item.icon){
-      <icon [name]="item.icon" addCls="!tw-text-black !tw-text-base"></icon>
-      }
-      <span [ngClass]="type() === 'solid' ? 'tw-text-white' : 'tw-text-black'">{{ item.name }}</span>
-    </div>
-  </ng-template>
-
-</p-dropdown>
-}@placeholder {
-<div class="tw-h-10 tw-rounded-md tw-animate-pulse  "
-  [ngClass]="type()==='solid' ? 'tw-min-w-40 tw-bg-azure-50/50' : 'tw-min-w-44 tw-bg-gray-100'">
-</div>
+    <!-- Template for selected item -->
+    <ng-template let-item pTemplate="selectedItem">
+      <div class="tw-flex tw-items-center tw-gap-x-2">
+        @if (item.icon) {
+          <icon [name]="item.icon" addCls="!tw-text-black !tw-text-base"></icon>
+        }
+        <span
+          [ngClass]="type() === 'solid' ? 'tw-text-white' : 'tw-text-black'"
+          >{{ item.name }}</span
+        >
+      </div>
+    </ng-template>
+  </p-dropdown>
+} @placeholder {
+  <div
+    class="tw-h-10 tw-animate-pulse tw-rounded-md"
+    [ngClass]="
+      type() === 'solid'
+        ? 'tw-min-w-40 tw-bg-azure-50/50'
+        : 'tw-min-w-44 tw-bg-gray-100'
+    "
+  ></div>
 }

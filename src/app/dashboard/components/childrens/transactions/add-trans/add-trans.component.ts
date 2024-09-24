@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './add-trans.component.html',
-  styleUrl: './add-trans.component.scss'
+  styleUrl: './add-trans.component.scss',
 })
-export class AddTransComponent {
-
-}
+export class AddTransComponent {}

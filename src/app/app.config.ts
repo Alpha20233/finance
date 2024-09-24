@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideExperimentalZonelessChangeDetection(),
     provideAnimationsAsync(),
     provideLottieOptions({
-      player: () =>  import('lottie-web'),
+      player: () => import('lottie-web'),
     }),
   ],
 };

@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class LottieSerService {
-
   private animationItem: AnimationItem | null = null;
 
-  constructor() { }
+  constructor() {}
   private animationItems = new Map<string, AnimationItem>();
 
   animationCreated(id: string, animationItem: AnimationItem): void {

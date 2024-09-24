@@ -1,5 +1,15 @@
 import { CommonModule, DecimalPipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, input, InputSignal, OnInit, signal, OnDestroy, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  InputSignal,
+  OnInit,
+  signal,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { budgetTitle } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
 import { count, single, Subject, takeUntil } from 'rxjs';
@@ -19,12 +29,20 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
   amt: InputSignal<number> = input.required<number>();
   lastMonAmt: InputSignal<number> = input.required<number>();
   addCls: InputSignal<string> = input<string>('');
-  filtDate = signal<Date[]>([new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate()), new Date()]);
+  filtDate = signal<Date[]>([
+    new Date(
+      new Date().getFullYear(),
+      new Date().getMonth() - 1,
+      new Date().getDate(),
+    ),
+    new Date(),
+  ]);
 
   periodCompaPercent = computed(() => {
-    return Math.round((this.lastMonAmt() - this.amt()) / this.lastMonAmt() * 100);
+    return Math.round(
+      ((this.lastMonAmt() - this.amt()) / this.lastMonAmt()) * 100,
+    );
   });
-
 
   private destroy$ = new Subject<void>();
   readonly Math = Math;
@@ -32,12 +50,10 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
 
   finalCount = signal<number>(1000);
 
-  constructor(private readonly comm: CommService) { }
+  constructor(private readonly comm: CommService) {}
 
   ngOnInit() {
-    this.comm.date$.pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(dateRange => {
+    this.comm.date$.pipe(takeUntil(this.destroy$)).subscribe((dateRange) => {
       if (Array.isArray(dateRange) && dateRange.length === 2) {
         this.filtDate.set([dateRange[0], dateRange[1]]);
       }
@@ -48,5 +64,4 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
 }

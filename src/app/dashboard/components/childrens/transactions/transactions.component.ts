@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ButtonComponent } from "../../../../shared/components/button/button.component";
+import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/components/icon/icon.component';
-import { SearchComponent } from "../../../../shared/components/search/search.component";
+import { SearchComponent } from '../../../../shared/components/search/search.component';
 import { TableComponent } from '../../../../shared/components/table/table.component';
-import { tableColuType, transTableData } from '../../../../shared/models/shared.interface';
+import {
+  tableColuType,
+  transTableData,
+} from '../../../../shared/models/shared.interface';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../../../shared/services/lottie/lottie-ser.service';
 import { SidebarModule } from 'primeng/sidebar';
@@ -13,7 +16,16 @@ import { DatepickerComponent } from '../../../../shared/components/datepicker/da
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [ButtonComponent, CommonModule, IconComponent, SearchComponent, TableComponent, LottieComponent,SidebarModule,DatepickerComponent],
+  imports: [
+    ButtonComponent,
+    CommonModule,
+    IconComponent,
+    SearchComponent,
+    TableComponent,
+    LottieComponent,
+    SidebarModule,
+    DatepickerComponent,
+  ],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +47,7 @@ export class TransactionsComponent {
       category: 'Rent',
       payee: 'John Doe',
       amt: -12000,
-      type: 'checking'
+      type: 'checking',
     },
     {
       id: 2,
@@ -43,7 +55,7 @@ export class TransactionsComponent {
       category: 'Groceries',
       payee: 'Walmart',
       amt: 250,
-      type: 'credit'
+      type: 'credit',
     },
     {
       id: 3,
@@ -51,7 +63,7 @@ export class TransactionsComponent {
       category: 'Utilities',
       payee: 'Electric Company',
       amt: 150,
-      type: 'checking'
+      type: 'checking',
     },
     {
       id: 4,
@@ -59,7 +71,7 @@ export class TransactionsComponent {
       category: 'Entertainment',
       payee: 'Cinema City',
       amt: 50,
-      type: 'credit'
+      type: 'credit',
     },
     {
       id: 5,
@@ -67,7 +79,7 @@ export class TransactionsComponent {
       category: 'Dining',
       payee: 'Pizza Palace',
       amt: 75,
-      type: 'checking'
+      type: 'checking',
     },
     {
       id: 6,
@@ -75,7 +87,7 @@ export class TransactionsComponent {
       category: 'Transportation',
       payee: 'Gas Station',
       amt: 60,
-      type: 'credit'
+      type: 'credit',
     },
     {
       id: 7,
@@ -83,7 +95,7 @@ export class TransactionsComponent {
       category: 'Healthcare',
       payee: 'City Hospital',
       amt: 200,
-      type: 'checking'
+      type: 'checking',
     },
     {
       id: 8,
@@ -91,7 +103,7 @@ export class TransactionsComponent {
       category: 'Shopping',
       payee: 'Amazon',
       amt: 120,
-      type: 'credit'
+      type: 'credit',
     },
     {
       id: 9,
@@ -99,7 +111,7 @@ export class TransactionsComponent {
       category: 'Education',
       payee: 'Online Course',
       amt: 300,
-      type: 'checking'
+      type: 'checking',
     },
     {
       id: 10,
@@ -107,19 +119,18 @@ export class TransactionsComponent {
       category: 'Fitness',
       payee: 'Gym Membership',
       amt: 80,
-      type: 'credit'
+      type: 'credit',
     },
-  ])
+  ]);
 
   options: AnimationOptions = {
     path: '/json/trash.json',
     autoplay: false,
-    loop: false
+    loop: false,
   };
 
   rowSeleCount = signal<number>(0);
   sidebarVisible = signal<boolean>(false);
 
-  constructor(public readonly lottieService: LottieSerService) { }
-
+  constructor(public readonly lottieService: LottieSerService) {}
 }

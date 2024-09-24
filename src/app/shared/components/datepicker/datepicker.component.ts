@@ -27,13 +27,12 @@ import { FormsModule } from '@angular/forms';
     IconComponent,
     CommonModule,
     AsyncPipe,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class DatepickerComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);
@@ -50,13 +49,20 @@ export class DatepickerComponent {
 
   dateSingleValue = signal<string>('');
   dateRangeValue = signal<Date[]>([
-    new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate()),
-    new Date()
+    new Date(
+      new Date().getFullYear(),
+      new Date().getMonth() - 1,
+      new Date().getDate(),
+    ),
+    new Date(),
   ]);
 
-  private readonly baseClass = '!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500';
-  private readonly modeSingleClass = 'tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4';
-  private readonly modeRangeClass = 'tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm';
+  private readonly baseClass =
+    '!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500';
+  private readonly modeSingleClass =
+    'tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4';
+  private readonly modeRangeClass =
+    'tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm';
 
   styleClass = computed(() => {
     const classes = [this.baseClass];
@@ -64,17 +70,20 @@ export class DatepickerComponent {
     if (this.disabled()) classes.push('tw-pointer-events-none');
     if (this.selectionMode() === 'range') classes.push(this.modeRangeClass);
     return classes.join(' ');
-  })
-
+  });
 
   @ViewChild('calendar') calendar!: Calendar;
 
-  constructor(public readonly comm: CommService) { }
+  constructor(public readonly comm: CommService) {}
 
   dateChange(value: any) {
     console.warn('value', value);
     this.dateSingleValue.set(value);
-    if (this.selectionMode() === 'range' && (value[0] !== null && value[1] !== null)) {
+    if (
+      this.selectionMode() === 'range' &&
+      value[0] !== null &&
+      value[1] !== null
+    ) {
       this.dateRangeValue.set(value);
       this.comm.updateDate(value);
     }

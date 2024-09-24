@@ -51,7 +51,7 @@ export class AvatarComponent {
     return name.length === 1
       ? name[0].charAt(0).toUpperCase()
       : name[0].charAt(0).toUpperCase() +
-      name[name.length - 1].charAt(0).toUpperCase();
+          name[name.length - 1].charAt(0).toUpperCase();
   });
 
   public readonly backgroundColor = computed(() => {
@@ -59,7 +59,7 @@ export class AvatarComponent {
     return this.colors[index];
   });
 
-  constructor(private readonly route: Router) { }
+  constructor(private readonly route: Router) {}
 
   logout(): void {
     this.route.navigate(['/auth/signin']);

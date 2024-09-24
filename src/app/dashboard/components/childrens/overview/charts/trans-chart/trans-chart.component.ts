@@ -1,9 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, input, InputSignal, signal, ViewChild, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  effect,
+  input,
+  InputSignal,
+  signal,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
 import { DropdownComponent } from '../../../../../../shared/components/dropdown/dropdown.component';
 import { ChartModule, UIChart } from 'primeng/chart';
 import { dropDownList } from '../../../../../../shared/models/shared.interface';
-import { ChartData, ChartOptions, chartType } from '../../../../../models/dashboard.interface';
+import {
+  ChartData,
+  ChartOptions,
+  chartType,
+} from '../../../../../models/dashboard.interface';
 
 @Component({
   selector: 'trans-chart',
@@ -18,14 +33,12 @@ export class TransChartComponent implements OnInit {
   data!: ChartData;
   options!: ChartOptions;
 
-
   dropItemList = signal<dropDownList[]>([
     { name: 'Line chart', id: 1, icon: 'line-chr' },
-    { name: 'Bar chart', id: 2, icon: 'bar-chr' }
+    { name: 'Bar chart', id: 2, icon: 'bar-chr' },
   ]);
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.initializeChart();
@@ -33,15 +46,45 @@ export class TransChartComponent implements OnInit {
 
   initializeChart() {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+    const textColorSecondary = documentStyle.getPropertyValue(
+      '--text-color-secondary',
+    );
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     this.data = {
       labels: [
-        '23 Aug', '24 Aug', '25 Aug', '26 Aug', '27 Aug', '28 Aug', '29 Aug', '30 Aug', '31 Aug',
-        '1 Sep', '2 Sep', '3 Sep', '4 Sep', '5 Sep', '6 Sep', '7 Sep', '8 Sep', '9 Sep', '10 Sep',
-        '11 Sep', '12 Sep', '13 Sep', '14 Sep', '15 Sep', '16 Sep', '17 Sep', '18 Sep', '19 Sep',
-        '20 Sep', '21 Sep', '22 Sep', '23 Sep'
+        '23 Aug',
+        '24 Aug',
+        '25 Aug',
+        '26 Aug',
+        '27 Aug',
+        '28 Aug',
+        '29 Aug',
+        '30 Aug',
+        '31 Aug',
+        '1 Sep',
+        '2 Sep',
+        '3 Sep',
+        '4 Sep',
+        '5 Sep',
+        '6 Sep',
+        '7 Sep',
+        '8 Sep',
+        '9 Sep',
+        '10 Sep',
+        '11 Sep',
+        '12 Sep',
+        '13 Sep',
+        '14 Sep',
+        '15 Sep',
+        '16 Sep',
+        '17 Sep',
+        '18 Sep',
+        '19 Sep',
+        '20 Sep',
+        '21 Sep',
+        '22 Sep',
+        '23 Sep',
       ],
       datasets: [
         {
@@ -78,7 +121,7 @@ export class TransChartComponent implements OnInit {
             Math.floor(Math.random() * 101),
             Math.floor(Math.random() * 101),
             Math.floor(Math.random() * 101),
-            Math.floor(Math.random() * 101)
+            Math.floor(Math.random() * 101),
           ],
           fill: false,
           backgroundColor: documentStyle.getPropertyValue('--blue-500'),
@@ -119,14 +162,14 @@ export class TransChartComponent implements OnInit {
             Math.floor(Math.random() * 101),
             Math.floor(Math.random() * 101),
             Math.floor(Math.random() * 101),
-            Math.floor(Math.random() * 101)
+            Math.floor(Math.random() * 101),
           ],
           fill: false,
           backgroundColor: documentStyle.getPropertyValue('--red-500'),
           borderColor: documentStyle.getPropertyValue('--red-500'),
-          tension: 0.01
-        }
-      ]
+          tension: 0.01,
+        },
+      ],
     };
 
     this.options = {
@@ -162,7 +205,6 @@ export class TransChartComponent implements OnInit {
       },
       scales: {
         x: {
-
           ticks: {
             color: textColorSecondary,
           },
@@ -174,7 +216,6 @@ export class TransChartComponent implements OnInit {
           },
         },
         y: {
-
           ticks: {
             color: textColorSecondary,
           },
@@ -218,7 +259,7 @@ export class TransChartComponent implements OnInit {
   }
 
   chartSelection(chartType: string) {
-    this.type.set(chartType === 'Bar chart' ? 'bar' : 'line')
+    this.type.set(chartType === 'Bar chart' ? 'bar' : 'line');
     this.initializeChart();
   }
 }

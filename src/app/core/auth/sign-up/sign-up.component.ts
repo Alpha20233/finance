@@ -41,12 +41,15 @@ import { CommService } from '../../../shared/services/common/comm.service';
   styleUrl: './sign-up.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpComponent implements OnInit{
+export class SignUpComponent implements OnInit {
   public frm!: FormGroup;
   public checked = model<boolean>(false);
   public form_submit = signal<boolean>(false);
 
-  constructor(public readonly comm: CommService,private readonly router: Router) { }
+  constructor(
+    public readonly comm: CommService,
+    private readonly router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.frm = new FormGroup({
@@ -66,7 +69,7 @@ export class SignUpComponent implements OnInit{
   submit() {
     this.form_submit.set(true);
     console.warn('foprm', this.frm.value);
-    
+
     if (this.frm.invalid) return;
     const formData: signup = this.frm.value;
     if (true) {
