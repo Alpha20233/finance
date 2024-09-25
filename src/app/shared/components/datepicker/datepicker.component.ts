@@ -44,6 +44,7 @@ export class DatepickerComponent {
   datLabel: InputSignal<string> = input<string>('');
   placeholder: InputSignal<string> = input.required<string>();
   validText: InputSignal<string> = input<string>('');
+  addCls: InputSignal<string> = input<string>('');
   max: InputSignal<Date> = input<Date>(new Date());
   dateChng = output<string>({ alias: 'date' });
 
@@ -65,7 +66,7 @@ export class DatepickerComponent {
     'tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm';
 
   styleClass = computed(() => {
-    const classes = [this.baseClass];
+    const classes = [this.baseClass,this.addCls()];
     if (this.selectionMode() === 'single') classes.push(this.modeSingleClass);
     if (this.disabled()) classes.push('tw-pointer-events-none');
     if (this.selectionMode() === 'range') classes.push(this.modeRangeClass);

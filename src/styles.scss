@@ -77,6 +77,10 @@ body {
         display: flex;
       }
 
+      .p-inputtext:nth-child(1){
+        font-size: 13px !important;
+      }
+
       .p-dropdown-trigger {
         justify-content: end !important;
 

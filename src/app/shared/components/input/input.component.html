@@ -22,6 +22,7 @@
       [ngModel]="inptValue()"
       (ngModelChange)="onInputChange($event)"
       (blur)="onBlur()"
+      [class]="addCls()"
       class="tw-azure-indigo-600 tw-w-full tw-rounded-xl tw-border-2 tw-border-solid tw-border-stroke-100 tw-p-2 tw-px-4 tw-outline-none tw-ring-offset-2 tw-transition-all tw-duration-200 tw-ease-in focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200 xl:tw-cursor-pointer"
       [ngClass]="{
         'tw-pr-12 xl:tw-pr-14': icon().name,
@@ -29,6 +30,7 @@
           disabled(),
         'focus:tw-border-stroke-100 focus:tw-ring-0 focus:tw-ring-transparent':
           readonly(),
+          
       }"
     />
 

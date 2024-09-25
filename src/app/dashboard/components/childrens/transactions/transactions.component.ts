@@ -12,6 +12,7 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../../../shared/services/lottie/lottie-ser.service';
 import { SidebarModule } from 'primeng/sidebar';
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
+import { AddTransComponent } from "./add-trans/add-trans.component";
 
 @Component({
   selector: 'app-transactions',
@@ -25,7 +26,8 @@ import { DatepickerComponent } from '../../../../shared/components/datepicker/da
     LottieComponent,
     SidebarModule,
     DatepickerComponent,
-  ],
+    AddTransComponent
+],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

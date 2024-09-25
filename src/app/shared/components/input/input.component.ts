@@ -32,7 +32,8 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class InputComponent implements ControlValueAccessor {
   type: InputSignal<string> = input<string>('text');
-  inpLabel: InputSignal<string> = input.required<string>();
+  inpLabel: InputSignal<string> = input<string>('');
+  addCls: InputSignal<string> = input<string>('');
   placeholder: InputSignal<string> = input.required<string>();
   readonly: InputSignal<boolean> = input<boolean>(false);
   disabled: InputSignal<boolean> = input<boolean>(false);
