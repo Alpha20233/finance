@@ -1,21 +1,24 @@
-
-@defer(){
-    <p-confirmDialog [closeOnEscape]="true" [dismissableMask]="false" >
-        <ng-template pTemplate="header">
-            <h3>{{ header() }}</h3>
-        </ng-template>
-        <ng-template pTemplate="icon">
-            <icon [name]="icon()" addCls="!tw-text-red-600 !tw-text-xl"></icon>
-        </ng-template>
-        <ng-template pTemplate="message">
-            <p>{{ message() }}</p>
-        </ng-template>
-        <ng-template pTemplate="footer">
-            <div class="tw-flex tw-justify-end tw-gap-2">
-                <app-button (click)="cancel()" type="outline" addCls="!tw-h-10 !tw-rounded-lg">Cancel</app-button>
-                <app-button (click)="delete()">Confirm</app-button>
-            </div>
-        </ng-template>
-    </p-confirmDialog>
+@defer {
+  <p-confirmDialog [closeOnEscape]="true" [dismissableMask]="false">
+    <ng-template pTemplate="header">
+      <h3>{{ header() }}</h3>
+    </ng-template>
+    <ng-template pTemplate="icon">
+      <icon [name]="icon()" addCls="!tw-text-red-600 !tw-text-xl"></icon>
+    </ng-template>
+    <ng-template pTemplate="message">
+      <p>{{ message() }}</p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="tw-flex tw-justify-end tw-gap-2">
+        <app-button
+          (click)="cancel()"
+          type="outline"
+          addCls="!tw-h-10 !tw-rounded-lg"
+          >Cancel</app-button
+        >
+        <app-button (click)="delete()">Confirm</app-button>
+      </div>
+    </ng-template>
+  </p-confirmDialog>
 }
-

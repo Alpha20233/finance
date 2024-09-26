@@ -1,8 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject, input, Optional, signal } from '@angular/core';
-import { IconComponent } from "../icon/icon.component";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  Optional,
+  signal,
+} from '@angular/core';
+import { IconComponent } from '../icon/icon.component';
 import { CommonModule } from '@angular/common';
 import { toastIconType } from '../../models/shared.interface';
-import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
+import {
+  MAT_SNACK_BAR_DATA,
+  MatSnackBarRef,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-toast',

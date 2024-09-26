@@ -24,8 +24,8 @@ export class CommService {
     this.dateSubject.next(date);
   }
 
-  openToastMsg(msg:string, iconType: toastIconType) {
-    if(!msg && !iconType) return;
+  openToastMsg(msg: string, iconType: toastIconType) {
+    if (!msg && !iconType) return;
     this.snackBar.openFromComponent(ToastComponent, {
       data: { msg, iconType },
       duration: 5 * 1000,

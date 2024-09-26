@@ -1,4 +1,14 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, computed, ElementRef, inject, Renderer2, signal, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  Renderer2,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/components/icon/icon.component';
@@ -12,8 +22,8 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../../../shared/services/lottie/lottie-ser.service';
 import { SidebarModule } from 'primeng/sidebar';
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
-import { AddTransComponent } from "./add-trans/add-trans.component";
-import { ConfirmDialogComponent } from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
+import { AddTransComponent } from './add-trans/add-trans.component';
+import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { CommService } from '../../../../shared/services/common/comm.service';
 
 @Component({
@@ -29,7 +39,7 @@ import { CommService } from '../../../../shared/services/common/comm.service';
     SidebarModule,
     DatepickerComponent,
     AddTransComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
   ],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.scss',
@@ -138,8 +148,6 @@ export class TransactionsComponent {
     loop: false,
   };
 
-
   rowSeleCount = signal<number>(0);
   sidebarVisible = signal<boolean>(false);
-
 }

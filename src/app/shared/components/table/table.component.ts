@@ -63,7 +63,7 @@ export class TableComponent implements OnInit {
       {
         label: 'Delete',
       },
-    ])
+    ]);
   }
 
   abs(value: number): number {
@@ -71,10 +71,10 @@ export class TableComponent implements OnInit {
   }
 
   next() {
-    this.first.update(value => value + this.rows());
+    this.first.update((value) => value + this.rows());
   }
 
   prev() {
-    this.first.update(value => value - this.rows());
+    this.first.update((value) => value - this.rows());
   }
 }

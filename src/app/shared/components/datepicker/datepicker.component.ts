@@ -66,7 +66,7 @@ export class DatepickerComponent {
     'tw-bg-azure-400/60 tw-border-none tw-h-10 !tw-shadow-none tw-text-white placeholder:tw-text-white placeholder:!tw-text-sm';
 
   styleClass = computed(() => {
-    const classes = [this.baseClass,this.addCls()];
+    const classes = [this.baseClass, this.addCls()];
     if (this.selectionMode() === 'single') classes.push(this.modeSingleClass);
     if (this.disabled()) classes.push('tw-pointer-events-none');
     if (this.selectionMode() === 'range') classes.push(this.modeRangeClass);

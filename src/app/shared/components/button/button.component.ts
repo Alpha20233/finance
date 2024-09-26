@@ -38,7 +38,7 @@ export class ButtonComponent implements OnInit {
     'tw-bg-transparent  tw-border-2 tw-border-solid tw-border-gray-300/50 tw-h-9 !tw-py-1 tw-px-4 tw-rounded-md tw-text-black tw-ring-0 hover:tw-bg-gray-300/10 tw-transition-all tw-ease-in tw-duration-200';
 
   public readonly buttonClasses = computed(() => {
-    const classes = [this.addCls(),this.baseClasses];
+    const classes = [this.addCls(), this.baseClasses];
     if (this.type() === 'light') classes.push(this.lightClasses);
     if (this.type() === 'outline') classes.push(this.outlineClasses);
     if (this.active()) classes.push(this.activeClasses);

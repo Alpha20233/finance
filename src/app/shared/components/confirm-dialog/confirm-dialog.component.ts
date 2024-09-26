@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, input, Input, output, signal } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { IconComponent } from "../icon/icon.component";
-import { ButtonComponent } from "../button/button.component";
+import { IconComponent } from '../icon/icon.component';
+import { ButtonComponent } from '../button/button.component';
 import { ToastModule } from 'primeng/toast';
 import { CommService } from '../../services/common/comm.service';
 
@@ -13,7 +13,7 @@ import { CommService } from '../../services/common/comm.service';
   imports: [CommonModule, ConfirmDialogModule, IconComponent, ButtonComponent],
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService, MessageService],
 })
 export class ConfirmDialogComponent {
   message = input.required<string>();
@@ -22,10 +22,10 @@ export class ConfirmDialogComponent {
   onConfirm = output<any>();
   onReject = output<any>();
 
-  isShow = signal<boolean>(true)
+  isShow = signal<boolean>(true);
 
   private readonly comm = inject(CommService);
-  constructor(private readonly confirmationService: ConfirmationService) { }
+  constructor(private readonly confirmationService: ConfirmationService) {}
 
   showDialog() {
     this.confirmationService.confirm({
@@ -33,11 +33,11 @@ export class ConfirmDialogComponent {
       header: this.header(),
       icon: this.icon(),
       accept: () => {
-        this.delete()
+        this.delete();
       },
       reject: () => {
         this.cancel();
-      }
+      },
     });
   }
 
@@ -45,12 +45,10 @@ export class ConfirmDialogComponent {
     this.confirmationService.close();
     this.onReject.emit('cancel');
   }
-  
+
   delete() {
     this.confirmationService.close();
     this.onConfirm.emit('success');
     this.comm.openToastMsg('Transactions deleted successfully', 'success');
   }
-
-
 }

@@ -26,14 +26,20 @@ import { dropDownList, dropVariType } from '../../models/shared.interface';
 export class DropdownComponent implements OnInit {
   placeholder: InputSignal<string> = input.required<string>();
   dropList: InputSignal<dropDownList[]> = input.required<dropDownList[]>();
-  selectItem: InputSignal<dropDownList> = input<dropDownList>({name:'',id:0});
+  selectItem: InputSignal<dropDownList> = input<dropDownList>({
+    name: '',
+    id: 0,
+  });
   addCls: InputSignal<string> = input<string>('');
   type: InputSignal<dropVariType> = input<dropVariType>('solid');
   dropListSelection = output<string>();
   selectedItemModel = model<dropDownList>();
 
   styleClass = computed(() => {
-    const classes = ['tw-min-w-40 tw-h-10 tw-py-2 tw-px-4 tw-ring-0',this.addCls()];
+    const classes = [
+      'tw-min-w-40 tw-h-10 tw-py-2 tw-px-4 tw-ring-0',
+      this.addCls(),
+    ];
     if (this.type() === 'solid')
       classes.push(
         ' placeholder:tw-text-white tw-bg-azure-400/60 tw-text-white  tw-border-none ',
