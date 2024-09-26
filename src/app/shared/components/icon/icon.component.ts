@@ -44,5 +44,8 @@ export class IconComponent {
     'info': '\uE00F',
     'minus': '\uE010',
     'plus': '\uE011',
+    'check-fill': '\uE012',
+    'close-fill': '\uE013',
+    'close': '\uE014',
   };
 }

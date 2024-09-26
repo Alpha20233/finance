@@ -6,9 +6,10 @@ import {
   signal,
   OnInit,
   output,
+  inject,
 } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { tableColuType } from '../../models/shared.interface';
+import { TableColumn } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
 import { MenuModule } from 'primeng/menu';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
@@ -31,17 +32,15 @@ import { ButtonComponent } from '../button/button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {
-  cols = input.required<tableColuType[]>();
+  lottieService = inject(LottieSerService);
+
+  cols = input.required<TableColumn[]>();
   data = input.required<any[]>();
   selectCount = output<number>();
-  hoveredItem: string | null = null;
 
   first = signal<number>(0);
   rows = signal<number>(8);
-
-  constructor(public lottieService: LottieSerService) {}
-
-  menuItems!: { label: string }[];
+  menuItems = signal<{ label: string }[]>([]);
 
   options: AnimationOptions[] = [
     {
@@ -56,15 +55,15 @@ export class TableComponent implements OnInit {
     },
   ];
 
-  ngOnInit() {
-    this.menuItems = [
+  ngOnInit(): void {
+    this.menuItems.set([
       {
         label: 'Edit',
       },
       {
         label: 'Delete',
       },
-    ];
+    ])
   }
 
   abs(value: number): number {
@@ -72,10 +71,10 @@ export class TableComponent implements OnInit {
   }
 
   next() {
-    this.first.set(this.first() + this.rows());
+    this.first.update(value => value + this.rows());
   }
 
   prev() {
-    this.first.set(this.first() - this.rows());
+    this.first.update(value => value - this.rows());
   }
 }

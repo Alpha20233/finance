@@ -1,18 +1,20 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, computed, ElementRef, inject, Renderer2, signal, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/components/icon/icon.component';
 import { SearchComponent } from '../../../../shared/components/search/search.component';
 import { TableComponent } from '../../../../shared/components/table/table.component';
 import {
-  tableColuType,
-  transTableData,
+  TableColumn,
+  TransactionData,
 } from '../../../../shared/models/shared.interface';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../../../shared/services/lottie/lottie-ser.service';
 import { SidebarModule } from 'primeng/sidebar';
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
 import { AddTransComponent } from "./add-trans/add-trans.component";
+import { ConfirmDialogComponent } from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
+import { CommService } from '../../../../shared/services/common/comm.service';
 
 @Component({
   selector: 'app-transactions',
@@ -26,14 +28,19 @@ import { AddTransComponent } from "./add-trans/add-trans.component";
     LottieComponent,
     SidebarModule,
     DatepickerComponent,
-    AddTransComponent
-],
+    AddTransComponent,
+    ConfirmDialogComponent
+  ],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TransactionsComponent {
-  cols = signal<tableColuType[]>([
+  public readonly lottieService = inject(LottieSerService);
+
+  @ViewChild('dialog') dialog!: ConfirmDialogComponent;
+
+  cols = signal<TableColumn[]>([
     { field: 'date', header: 'Date' },
     { field: 'category', header: 'Category' },
     { field: 'payee', header: 'Payee' },
@@ -42,7 +49,7 @@ export class TransactionsComponent {
     { field: 'action', header: 'Action' },
   ]);
 
-  tableData = signal<transTableData[]>([
+  tableData = signal<TransactionData[]>([
     {
       id: 1,
       date: '14 Sep 2023',
@@ -131,8 +138,8 @@ export class TransactionsComponent {
     loop: false,
   };
 
+
   rowSeleCount = signal<number>(0);
   sidebarVisible = signal<boolean>(false);
 
-  constructor(public readonly lottieService: LottieSerService) {}
 }

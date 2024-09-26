@@ -115,7 +115,7 @@
 
 <!--P-mat menu-->
 <div class="tw-static">
-  <p-menu #menu [model]="menuItems" [popup]="true">
+  <p-menu #menu [model]="menuItems()" [popup]="true">
     <ng-template pTemplate="item" let-item>
       <div class="tw-rounded-md tw-bg-white">
         <span

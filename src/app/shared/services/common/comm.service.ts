@@ -1,23 +1,36 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { map, Observable, Subject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastComponent } from '../../components/toast/toast.component';
+import { toastIconType } from '../../models/shared.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommService {
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
+  private snackBar = inject(MatSnackBar);
+  private breakpointObserver = inject(BreakpointObserver);
   private dateSubject = new Subject<Date>();
   date$ = this.dateSubject.asObservable();
 
-  public isMobile(): Observable<boolean> {
+  isMobile(): Observable<boolean> {
     return this.breakpointObserver
       .observe([Breakpoints.Handset])
       .pipe(map((result) => !result.matches));
   }
 
-  public updateDate(date: Date) {
+  updateDate(date: Date) {
     this.dateSubject.next(date);
+  }
+
+  openToastMsg(msg:string, iconType: toastIconType) {
+    if(!msg && !iconType) return;
+    this.snackBar.openFromComponent(ToastComponent, {
+      data: { msg, iconType },
+      duration: 5 * 1000,
+      horizontalPosition: 'start',
+      verticalPosition: 'bottom',
+    });
   }
 }

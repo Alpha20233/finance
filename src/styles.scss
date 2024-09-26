@@ -228,6 +228,25 @@ body {
       margin-top: 0.5rem;
     }
   }
+
+  .p-confirm-dialog{
+    h3{
+      margin: 0 ;
+    }
+
+    .p-dialog-header{
+      padding-bottom: 0;
+    }
+
+    p{
+      margin: 0.75rem 1px;
+      font-size: 15px;
+    }
+
+    .p-dialog-content{
+      column-gap: 0.5rem;
+    }
+  }
 }
 
 //primeng Classes
@@ -288,5 +307,24 @@ body {
 @supports not selector(::-webkit-scrollbar) {
   body {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.mdc-snackbar {
+  --mdc-snackbar-container-shape: 0;
+  --mdc-snackbar-container-color: transparent;
+  --mdc-snackbar-supporting-text-color: transparent;
+
+  .mdc-snackbar__label {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+  }
+
+  .mdc-snackbar__surface {
+          padding-right: 0 !important;
+          box-shadow: none !important;
+          padding: 1.5rem !important;
   }
 }

@@ -1,4 +1,3 @@
-
 <div class="tw-mt-3 tw-flex tw-flex-col tw-gap-y-4">
 
     <div class="tw-flex tw-flex-col tw-gap-y-2">
@@ -35,10 +34,11 @@
             <p-inputNumber placeholder="0.00" inputId="integeronly" maxlength="14" [ngModel]="amount()"
                 (ngModelChange)="amount.set($event)" [inputStyleClass]="numberInputClass" styleClass="!tw-w-full"
                 class="tw-w-full" mode="currency" currency="INR" locale="en-IN" [minFractionDigits]="0"
-                [maxFractionDigits]="0" [useGrouping]="true"  />
+                [maxFractionDigits]="0" [useGrouping]="true" />
             <div class="tw-w-7 tw-h-7 tw-absolute tw-left-6 tw-rounded-md tw-top-1/2  -tw-translate-x-1/2 -tw-translate-y-1/2  xl:tw-cursor-pointer tw-flex tw-justify-center tw-items-center"
-                [ngClass]="{'tw-bg-green-500': amount() > 0, 'tw-bg-red-500': amount() < 0, 'tw-bg-gray-300': amount() == 0 || amount() == null }" (click)="amount() > 0 ? amount.set(-amount()) : amount() < 0 ? amount.set(-amount()) : 0">
-                <icon [name]="amount() > 0 ? 'plus' : amount() < 0 ? 'minus' : 'info'" addCls="!tw-text-white" ></icon>
+                [ngClass]="{'tw-bg-green-500': amount() > 0, 'tw-bg-red-500': amount() < 0, 'tw-bg-gray-300': amount() == 0 || amount() == null }"
+                (click)="amount() > 0 ? amount.set(-amount()) : amount() < 0 ? amount.set(-amount()) : 0">
+                <icon [name]="amount() > 0 ? 'plus' : amount() < 0 ? 'minus' : 'info'" addCls="!tw-text-white"></icon>
             </div>
         </div>
     </div>
@@ -50,5 +50,6 @@
             placeholder="Optional notes" maxlength="200"></textarea>
     </div>
 
-    <app-button>Add a transaction</app-button>
+    <app-button (click)="openSuccess()">Add a transaction</app-button>
 </div>
+

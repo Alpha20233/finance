@@ -1,5 +1,5 @@
 @defer (on timer(150ms)) {
-<div class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4">
+<div #content class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4">
   <div class="tw-flex tw-w-full tw-items-center tw-justify-between">
     <span class="tw-text-xl tw-font-semibold">Transaction History</span>
     <div>
@@ -24,7 +24,7 @@
 
       @if (rowSeleCount() > 0) {
       <app-button type="outline" (mouseenter)="lottieService.playAnimation('delete')"
-        (mouseleave)="lottieService.stopAnimation('delete')">
+        (mouseleave)="lottieService.stopAnimation('delete')" (click)="dialog.showDialog()">
         <div class="tw-flex tw-items-center tw-justify-center tw-gap-x-2">
           <div class="tw-h-5 tw-w-5 xl:tw-cursor-pointer">
             <ng-lottie [options]="options" (animationCreated)="
@@ -88,3 +88,7 @@
   }
 </p-sidebar>
 }
+
+
+<confirm-dialog #dialog message="You about to perform a bulk delete?" header="Delete Confirmation ?"
+  icon="info"></confirm-dialog>
