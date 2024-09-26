@@ -2,21 +2,20 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
+  inject,
   input,
   InputSignal,
   output,
-  OutputOptions,
   signal,
   ViewChild,
 } from '@angular/core';
 import { Calendar, CalendarModule } from 'primeng/calendar';
 import { AsyncPipe, CommonModule, LowerCasePipe } from '@angular/common';
-import { validCond } from '../../../core/models/auth.interface';
 import { IconComponent } from '../icon/icon.component';
 import { CommService } from '../../services/common/comm.service';
-import { selectionMode } from '../../models/shared.interface';
 import { FormsModule } from '@angular/forms';
+import { ValidCondition } from '../../../core/models/auth.interface';
+import { SelectionMode } from '../../models/shared.interface';
 
 @Component({
   selector: 'datepicker',
@@ -34,18 +33,20 @@ import { FormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerComponent {
+  public comm = inject(CommService);
+
+  @ViewChild('calendar') calendar!: Calendar;
+
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);
-  selectionMode: InputSignal<selectionMode> = input<selectionMode>('single');
-  isValid: InputSignal<validCond> = input<validCond>({
-    cond1: false,
-    form_submit: false,
-  });
+  selectionMode: InputSignal<SelectionMode> = input<SelectionMode>('single');
+  isValid: InputSignal<ValidCondition> = input<ValidCondition>({ cond1: false, form_submit: false });
   datLabel: InputSignal<string> = input<string>('');
   placeholder: InputSignal<string> = input.required<string>();
   validText: InputSignal<string> = input<string>('');
   addCls: InputSignal<string> = input<string>('');
-  max: InputSignal<Date> = input<Date>(new Date());
+  max = signal<Date>(new Date());
+
   dateChng = output<string>({ alias: 'date' });
 
   dateSingleValue = signal<string>('');
@@ -73,14 +74,10 @@ export class DatepickerComponent {
     return classes.join(' ');
   });
 
-  @ViewChild('calendar') calendar!: Calendar;
-
-  constructor(public readonly comm: CommService) {}
-
   dateChange(value: any) {
-    console.warn('value', value);
-    this.dateSingleValue.set(value);
-    if (
+    if (this.selectionMode() === 'single') {
+      this.dateSingleValue.set(value);
+    } else if (
       this.selectionMode() === 'range' &&
       value[0] !== null &&
       value[1] !== null

@@ -1,6 +1,6 @@
-export type selectionMode = 'single' | 'multiple' | 'range';
+export type SelectionMode = 'single' | 'multiple' | 'range';
 export type btnType = 'solid' | 'light' | 'outline';
-export type budgetTitle = 'Remaining' | 'Income' | 'Expenses';
+export type BudgetTitle = 'Remaining' | 'Income' | 'Expenses';
 export type dropVariType = 'solid' | 'stroke';
 export type toastIconType = 'success' | 'error';
 

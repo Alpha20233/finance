@@ -1,20 +1,20 @@
-import { CommonModule, DecimalPipe, NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
   input,
-  InputSignal,
   OnInit,
   signal,
   OnDestroy,
-  ViewChild,
+  inject,
+  InputSignal,
 } from '@angular/core';
-import { budgetTitle } from '../../models/shared.interface';
+import { BudgetTitle } from '../../models/shared.interface';
 import { IconComponent } from '../icon/icon.component';
-import { count, single, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { CommService } from '../../services/common/comm.service';
-import { CountUpDirective, CountUpModule } from 'ngx-countup';
+import { CountUpModule } from 'ngx-countup';
 
 @Component({
   selector: 'budget-card',
@@ -24,11 +24,16 @@ import { CountUpDirective, CountUpModule } from 'ngx-countup';
   styleUrl: './budget-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class BudgetCardComponent implements OnInit, OnDestroy {
-  title: InputSignal<budgetTitle> = input.required<budgetTitle>();
+  private readonly comm = inject(CommService)
+  private readonly destroy$ = new Subject<void>();
+
+  title: InputSignal<BudgetTitle> = input.required<BudgetTitle>();
   amt: InputSignal<number> = input.required<number>();
   lastMonAmt: InputSignal<number> = input.required<number>();
   addCls: InputSignal<string> = input<string>('');
+
   filtDate = signal<Date[]>([
     new Date(
       new Date().getFullYear(),
@@ -37,22 +42,15 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
     ),
     new Date(),
   ]);
-
-  periodCompaPercent = computed(() => {
-    return Math.round(
-      ((this.lastMonAmt() - this.amt()) / this.lastMonAmt()) * 100,
-    );
-  });
-
-  private destroy$ = new Subject<void>();
-  readonly Math = Math;
-  readonly currYear = new Date().getFullYear();
-
   finalCount = signal<number>(1000);
 
-  constructor(private readonly comm: CommService) {}
+  periodCompaPercent = computed(() =>
+    Math.round(((this.lastMonAmt() - this.amt()) / this.lastMonAmt()) * 100)
+  );
 
-  ngOnInit() {
+  readonly currYear = new Date().getFullYear();
+
+  ngOnInit(): void {
     this.comm.date$.pipe(takeUntil(this.destroy$)).subscribe((dateRange) => {
       if (Array.isArray(dateRange) && dateRange.length === 2) {
         this.filtDate.set([dateRange[0], dateRange[1]]);
@@ -60,7 +58,7 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

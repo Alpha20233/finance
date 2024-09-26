@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, input, Input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, InputSignal, output, signal } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { IconComponent } from '../icon/icon.component';
 import { ButtonComponent } from '../button/button.component';
-import { ToastModule } from 'primeng/toast';
 import { CommService } from '../../services/common/comm.service';
 
 @Component({
@@ -13,21 +12,26 @@ import { CommService } from '../../services/common/comm.service';
   imports: [CommonModule, ConfirmDialogModule, IconComponent, ButtonComponent],
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ConfirmationService, MessageService],
 })
+
 export class ConfirmDialogComponent {
-  message = input.required<string>();
-  header = input.required<string>();
-  icon = input.required<string>();
+  message: InputSignal<string> = input.required<string>();
+  header: InputSignal<string> = input.required<string>();
+  icon: InputSignal<string> = input.required<string>();
+  selectCount: InputSignal<number> = input<number>(0);
+
   onConfirm = output<any>();
   onReject = output<any>();
 
   isShow = signal<boolean>(true);
 
   private readonly comm = inject(CommService);
-  constructor(private readonly confirmationService: ConfirmationService) {}
+  private readonly confirmationService = inject(ConfirmationService)
 
-  showDialog() {
+
+  showDialog(): void {
     this.confirmationService.confirm({
       message: this.message(),
       header: this.header(),
@@ -41,14 +45,18 @@ export class ConfirmDialogComponent {
     });
   }
 
-  cancel() {
+  cancel(): void {
     this.confirmationService.close();
     this.onReject.emit('cancel');
   }
 
-  delete() {
+  delete(): void {
     this.confirmationService.close();
     this.onConfirm.emit('success');
-    this.comm.openToastMsg('Transactions deleted successfully', 'success');
+    if(this.selectCount() == 1){
+      this.comm.openToastMsg('Transaction deleted successfully', 'success');
+    }else{
+      this.comm.openToastMsg(`Bulk Transaction's deleted successfully`, 'success');
+    }
   }
 }

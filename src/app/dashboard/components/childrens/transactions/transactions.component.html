@@ -131,7 +131,8 @@
 
 <confirm-dialog
   #dialog
-  message="You about to perform a bulk delete?"
+  message="Are you sure, you want to delete this transaction?"
   header="Delete Confirmation ?"
   icon="info"
+  [selectCount]="rowSeleCount()"
 ></confirm-dialog>

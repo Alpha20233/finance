@@ -7,7 +7,7 @@
       <icon [name]="icon()" addCls="!tw-text-red-600 !tw-text-xl"></icon>
     </ng-template>
     <ng-template pTemplate="message">
-      <p>{{ message() }}</p>
+      <p>{{ selectCount() == 1  ? message() : 'You about to perform a bulk delete ?' }}</p>
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="tw-flex tw-justify-end tw-gap-2">

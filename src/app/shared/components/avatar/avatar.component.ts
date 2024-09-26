@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   computed,
+  Inject,
   input,
   InputSignal,
   signal,
@@ -21,6 +22,8 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarComponent {
+  private readonly route = Inject(Router)
+
   size: InputSignal<string> = input('medium');
   label: InputSignal<string> = input('');
 
@@ -58,8 +61,6 @@ export class AvatarComponent {
     const index = this.initialName().charCodeAt(0) % this.colors.length;
     return this.colors[index];
   });
-
-  constructor(private readonly route: Router) {}
 
   logout(): void {
     this.route.navigate(['/auth/signin']);

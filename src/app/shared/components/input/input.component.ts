@@ -7,7 +7,7 @@ import {
   InputSignal,
   signal,
 } from '@angular/core';
-import { icon, validCond } from '../../../core/models/auth.interface';
+import { icon, ValidCondition } from '../../../core/models/auth.interface';
 import {
   ControlValueAccessor,
   FormsModule,
@@ -42,7 +42,7 @@ export class InputComponent implements ControlValueAccessor {
   validText: InputSignal<string> = input<string>('');
   validText2: InputSignal<string> = input<string>('');
   maxLength: InputSignal<number> = input<number>(50);
-  isValid: InputSignal<validCond> = input<validCond>({
+  isValid: InputSignal<ValidCondition> = input<ValidCondition>({
     cond1: false,
     cond2: false,
     form_submit: false,

@@ -8,6 +8,7 @@ import {
   InputSignal,
   signal,
   OnInit,
+  inject,
 } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -22,11 +23,12 @@ import { btnType } from '../../models/shared.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit {
+  private readonly primengConfig = inject(PrimeNGConfig)
+
   disabled: InputSignal<boolean> = input<boolean>(false);
   active: InputSignal<boolean> = input<boolean>(false);
   type = input<btnType>('solid');
   addCls = input<string>('');
-  placeSkel = input<string>();
 
   private readonly baseClasses =
     'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10 tw-outline-none';
@@ -45,8 +47,6 @@ export class ButtonComponent implements OnInit {
     if (this.disabled()) classes.push('tw-pointer-events-none');
     return classes.join(' ');
   });
-
-  constructor(private readonly primengConfig: PrimeNGConfig) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = this.type() !== 'light';

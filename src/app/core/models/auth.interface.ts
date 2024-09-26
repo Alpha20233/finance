@@ -3,7 +3,7 @@ export interface icon {
   type?: string;
 }
 
-export interface validCond {
+export interface ValidCondition {
   cond1: boolean;
   cond2?: boolean;
   form_submit: boolean;
