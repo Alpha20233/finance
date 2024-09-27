@@ -1,5 +1,4 @@
 <!--Table Component-->
-
 <p-table
   #table
   [columns]="cols()"
@@ -39,7 +38,7 @@
         <td>
           @if (col.field !== "action") {
             <span
-              class="tw-text-sm tw-font-medium tw-text-black tw-underline-offset-2 tw-transition-all tw-duration-300 tw-ease-in hover:tw-underline"
+              class="tw-text-sm tw-font-medium tw-text-black tw-underline-offset-2 tw-transition-all tw-duration-300 tw-ease-in hover:tw-underline "
               [ngClass]="{
                 '!tw-rounded-full tw-bg-azure-100 tw-px-3 tw-py-1.5 !tw-text-xs !tw-text-azure-500':
                   col.field === 'amt' && rowData.amt > 0,
@@ -100,7 +99,7 @@
         "
         [class.tw-pointer-events-none]="
           (table?.first ?? 0) + (table?.rows ?? 0) >= table.totalRecords
-        "
+        " 
         >Next</app-button
       >
     </div>
@@ -119,11 +118,12 @@
     <ng-template pTemplate="item" let-item>
       <div class="tw-rounded-md tw-bg-white">
         <span
-          class="tw-flex tw-items-center tw-gap-x-2 tw-rounded-md tw-p-2 hover:tw-bg-gray-400/10 xl:tw-cursor-pointer"
+          class="tw-flex tw-items-center  tw-gap-x-2 tw-rounded-md tw-p-2 hover:tw-bg-gray-400/10 xl:tw-cursor-pointer"
           (mouseenter)="lottieService.playAnimation(item.label)"
           (mouseleave)="lottieService.stopAnimation(item.label)"
+          (click)="item.label === 'Delete' && deleteConfirm.emit(true)"
         >
-          <div class="tw-h-6 tw-w-6 xl:tw-cursor-pointer">
+          <div class="tw-h-6 tw-w-6 xl:tw-cursor-pointer" >
             <ng-lottie
               [options]="item.label === 'Edit' ? options[0] : options[1]"
               (animationCreated)="
@@ -138,3 +138,4 @@
     </ng-template>
   </p-menu>
 </div>
+

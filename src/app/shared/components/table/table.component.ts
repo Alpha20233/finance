@@ -15,6 +15,7 @@ import { MenuModule } from 'primeng/menu';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../services/lottie/lottie-ser.service';
 import { ButtonComponent } from '../button/button.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'table',
@@ -26,6 +27,7 @@ import { ButtonComponent } from '../button/button.component';
     MenuModule,
     LottieComponent,
     ButtonComponent,
+    ConfirmDialogComponent
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -37,6 +39,7 @@ export class TableComponent implements OnInit {
   cols = input.required<TableColumn[]>();
   data = input.required<any[]>();
   selectCount = output<number>();
+  deleteConfirm = output<boolean>();
 
   first = signal<number>(0);
   rows = signal<number>(8);

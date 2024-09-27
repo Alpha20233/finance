@@ -20,7 +20,7 @@ export class ConfirmDialogComponent {
   message: InputSignal<string> = input.required<string>();
   header: InputSignal<string> = input.required<string>();
   icon: InputSignal<string> = input.required<string>();
-  selectCount: InputSignal<number> = input<number>(0);
+  msg: InputSignal<string> = input<string>('');
 
   onConfirm = output<any>();
   onReject = output<any>();
@@ -51,12 +51,9 @@ export class ConfirmDialogComponent {
   }
 
   delete(): void {
+    debugger;
     this.confirmationService.close();
     this.onConfirm.emit('success');
-    if(this.selectCount() == 1){
-      this.comm.openToastMsg('Transaction deleted successfully', 'success');
-    }else{
-      this.comm.openToastMsg(`Bulk Transaction's deleted successfully`, 'success');
-    }
+    this.comm.openToastMsg(this.msg(), 'success');
   }
 }
