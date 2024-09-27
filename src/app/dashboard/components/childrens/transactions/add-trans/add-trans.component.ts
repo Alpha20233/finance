@@ -14,8 +14,8 @@ import { InputComponent } from '../../../../../shared/components/input/input.com
 import { ButtonComponent } from '../../../../../shared/components/button/button.component';
 import { IconComponent } from '../../../../../shared/components/icon/icon.component';
 import { CommonModule } from '@angular/common';
-import { ConfirmDialogComponent } from '../../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { CommService } from '../../../../../shared/services/common/comm.service';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'add-trans',
@@ -29,11 +29,13 @@ import { CommService } from '../../../../../shared/services/common/comm.service'
     ButtonComponent,
     IconComponent,
     CommonModule,
+    TooltipModule
   ],
   templateUrl: './add-trans.component.html',
   styleUrl: './add-trans.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class AddTransComponent {
   private readonly comm = inject(CommService);
 

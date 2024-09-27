@@ -107,8 +107,8 @@
   </ng-template>
 
   <ng-template pTemplate="emptymessage">
-    <tr>
-      <td [attr.colspan]="cols().length">No customers found.</td>
+    <tr class="tw-cursor-auto hover:!tw-bg-white">
+      <td class="tw-text-center" [attr.colspan]="(cols().length+1)">No transaction found.</td>
     </tr>
   </ng-template>
 </p-table>

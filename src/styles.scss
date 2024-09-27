@@ -68,6 +68,7 @@ body {
 
   p-dropdown {
     .p-inputwrapper {
+
       .p-inputtext,
       .p-dropdown-trigger-icon {
         color: var(--pIconColor) !important;
@@ -75,6 +76,25 @@ body {
         font-size: 14px !important;
         align-items: center;
         display: flex;
+      }
+
+      .p-dropdown-empty-message {
+        padding: 0.5rem 1rem;
+        font-size: 14px;
+
+        &:hover {
+          background-color: #f3f4f6;
+          border-radius: 5px;
+        }
+      }
+
+      .p-dropdown-header {
+        padding: 0.5rem 0.75rem !important;
+        background: #ffffff !important;
+      }
+
+      .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+        background: #d9d9d981 !important;
       }
 
       .p-inputtext:nth-child(1) {
@@ -147,7 +167,7 @@ body {
       box-shadow: none !important;
     }
 
-    .p-datatable-tbody > tr {
+    .p-datatable-tbody>tr {
       cursor: pointer;
 
       &:not(.p-highlight):hover {
@@ -161,7 +181,7 @@ body {
       }
     }
 
-    .p-datatable-thead > tr > th {
+    .p-datatable-thead>tr>th {
       padding: 0.75rem !important;
 
       span {
@@ -248,11 +268,29 @@ body {
       column-gap: 0.5rem;
     }
   }
+
+  .p-sidebar-mask {
+    z-index: 10 !important;
+  }
+
+  .p-tooltip{
+    font-size: 12px !important;
+    margin-top: 0.5rem !important;
+
+    .p-tooltip-text{
+      background-color: #3B82F6;
+      color: #f3f4f6;
+      padding: 0.5rem 0.5rem !important;
+    }
+    
+    .p-tooltip-arrow{
+      border-bottom-color: #3B82F6;
+    }
+  }
 }
 
 //primeng Classes
-@layer primeng {
-}
+@layer primeng {}
 
 //Tailwind classes
 @tailwind base;
