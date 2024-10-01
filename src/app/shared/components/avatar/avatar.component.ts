@@ -27,7 +27,8 @@ export class AvatarComponent {
   private readonly route = inject(Router)
 
   size: InputSignal<string> = input('medium');
-  label: InputSignal<string> = input('');
+  label: InputSignal<string> = input.required();
+  isPopUp: InputSignal<boolean> = input<boolean>(false);
 
   private readonly colors: readonly string[] = [
     '#1abc9c',

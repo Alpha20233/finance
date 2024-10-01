@@ -6,7 +6,7 @@
     'tw-size-10 tw-text-base': size() === 'medium',
     'tw-size-12 tw-text-lg': size() === 'large',
   }"
-  (click)="op.toggle($event)"
+  (click)="isPopUp() && op.toggle($event)"
   class="tw-flex tw-select-none tw-items-center tw-justify-center tw-rounded-full tw-border tw-border-solid tw-border-white tw-font-medium tw-text-white xl:tw-cursor-pointer"
   [style.backgroundColor]="backgroundColor()"
 >
