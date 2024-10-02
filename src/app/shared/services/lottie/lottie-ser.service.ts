@@ -5,10 +5,8 @@ import { AnimationItem } from 'lottie-web';
   providedIn: 'root',
 })
 export class LottieSerService {
-  private animationItem: AnimationItem | null = null;
-
-  constructor() {}
   private animationItems = new Map<string, AnimationItem>();
+  public isMenuOpen = false; // Track the animation state
 
   animationCreated(id: string, animationItem: AnimationItem): void {
     this.animationItems.set(id, animationItem);
@@ -18,6 +16,20 @@ export class LottieSerService {
     const animation = this.animationItems.get(id);
     if (animation) {
       animation.play();
+    }
+  }
+
+  toggleAnimation(id: string): void {
+    const animation = this.animationItems.get(id);
+    if (animation) {
+      if (this.isMenuOpen) {
+        animation.setDirection(-1); // Set to play in reverse
+        animation.play();
+      } else {
+        animation.setDirection(1); // Set to play forward
+        animation.play();
+      }
+      this.isMenuOpen = !this.isMenuOpen; // Toggle the state
     }
   }
 

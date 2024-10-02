@@ -2,9 +2,13 @@
   <div
     class="tw-flex tw-h-[524px] tw-w-full tw-flex-col tw-gap-y-8 tw-rounded-md tw-bg-white tw-p-4"
   >
-    <div class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3">
+    <div
+      class="max-max-md:tw-gap-y-3 tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3 max-md:tw-flex-col max-md:tw-items-start max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4 max-sm:tw-pr-0"
+    >
       <span class="tw-text-xl tw-font-semibold">Categories</span>
       <dropdown
+        class="max-sm:tw-w-full"
+        addCls="max-sm:tw-w-full"
         placeholder="Select type.."
         [dropList]="dropItemList()"
         [selectItem]="dropItemList()[0]"
@@ -17,11 +21,13 @@
     <div
       class="tw-flex tw-h-full tw-w-full tw-flex-col tw-items-center tw-justify-between tw-gap-y-6"
     >
-      <div class="tw-h-64 tw-w-64">
+      <div
+        class="max-md:tw-h-36 max-md:tw-w-36 max-sm:tw-h-64 max-sm:tw-w-64 xl:tw-h-64 xl:tw-w-64"
+      >
         <p-chart [type]="type()" [data]="data" [options]="options" />
       </div>
       <div
-        class="tw-flex tw-w-full tw-flex-col tw-flex-wrap tw-items-start tw-justify-center tw-gap-y-4"
+        class="tw-flex tw-w-full tw-flex-col tw-flex-wrap tw-items-start tw-justify-center tw-gap-y-4 max-sm:tw-flex-row max-sm:tw-gap-4"
       >
         @for (c of [0, 1, 2, 3]; track c) {
           <div class="tw-flex tw-items-center tw-gap-x-2">
@@ -38,7 +44,9 @@
   <div
     class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4"
   >
-    <div class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3">
+    <div
+      class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3 max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4"
+    >
       <span
         class="tw-h-9 tw-min-w-40 tw-animate-pulse tw-rounded-md tw-bg-gray-200"
       ></span>

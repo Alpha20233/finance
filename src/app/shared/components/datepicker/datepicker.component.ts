@@ -40,7 +40,10 @@ export class DatepickerComponent {
   disabled: InputSignal<boolean> = input<boolean>(false);
   isRequired: InputSignal<boolean> = input<boolean>(false);
   selectionMode: InputSignal<SelectionMode> = input<SelectionMode>('single');
-  isValid: InputSignal<ValidCondition> = input<ValidCondition>({ cond1: false, form_submit: false });
+  isValid: InputSignal<ValidCondition> = input<ValidCondition>({
+    cond1: false,
+    form_submit: false,
+  });
   datLabel: InputSignal<string> = input<string>('');
   placeholder: InputSignal<string> = input.required<string>();
   validText: InputSignal<string> = input<string>('');

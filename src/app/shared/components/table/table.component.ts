@@ -27,7 +27,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
     MenuModule,
     LottieComponent,
     ButtonComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',

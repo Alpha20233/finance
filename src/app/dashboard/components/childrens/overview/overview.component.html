@@ -1,6 +1,6 @@
 <div class="tw-flex tw-flex-col tw-gap-y-6">
   <div
-    class="tw-grid tw-w-full tw-grid-cols-3 tw-items-center tw-justify-between tw-gap-x-6"
+    class="tw-grid tw-w-full tw-grid-cols-3 tw-items-center tw-justify-between tw-gap-x-6 max-sm:tw-grid-cols-1 max-sm:tw-gap-y-3"
   >
     <budget-card
       title="Remaining"
@@ -20,8 +20,10 @@
     ></budget-card>
   </div>
 
-  <div class="tw-grid tw-grid-cols-3 tw-gap-x-6">
-    <trans-chart class="tw-col-span-2"></trans-chart>
+  <div
+    class="tw-grid tw-grid-cols-3 tw-gap-x-6 max-sm:tw-grid-cols-1 max-sm:tw-gap-y-6"
+  >
+    <trans-chart class="tw-col-span-2 max-sm:tw-col-span-1"></trans-chart>
     <categ-chart class="tw-col-span-1"></categ-chart>
   </div>
 </div>

@@ -11,20 +11,21 @@ import { toastIconType } from '../../models/shared.interface';
 export class CommService {
   private snackBar = inject(MatSnackBar);
   private breakpointObserver = inject(BreakpointObserver);
+
   private dateSubject = new Subject<Date>();
   date$ = this.dateSubject.asObservable();
 
   isMobile(): Observable<boolean> {
     return this.breakpointObserver
-      .observe([Breakpoints.Handset])
+      .observe([Breakpoints.Handset, Breakpoints.Small, Breakpoints.Medium])
       .pipe(map((result) => !result.matches));
   }
 
-  updateDate(date: Date) {
+  updateDate(date: Date): void {
     this.dateSubject.next(date);
   }
 
-  openToastMsg(msg: string, iconType: toastIconType) {
+  openToastMsg(msg: string, iconType: toastIconType): void {
     if (!msg && !iconType) return;
     this.snackBar.openFromComponent(ToastComponent, {
       data: { msg, iconType },

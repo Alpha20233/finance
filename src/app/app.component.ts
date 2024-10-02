@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'finance';
-
-  constructor(public readonly route: Router) {}
+  public readonly route = inject(Router);
 }

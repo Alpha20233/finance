@@ -17,10 +17,9 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class SearchComponent {
   placeholder = input.required<string>();
-  inptValue = output<string>();
   maxlength = input<number>(80);
-
-  constructor() {}
+  inptValue = output<string>();
+  addInpClass = input<string>();
 
   inputValue(event: Event) {
     const target = event.target as HTMLInputElement;

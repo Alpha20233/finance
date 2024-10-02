@@ -1,10 +1,10 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  output,
   OnInit,
   signal,
+  inject,
 } from '@angular/core';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { header } from '../../../models/header.interface';
@@ -14,6 +14,8 @@ import { DropdownComponent } from '../../../../shared/components/dropdown/dropdo
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
 import { CommService } from '../../../../shared/services/common/comm.service';
 import { dropDownList } from '../../../../shared/models/shared.interface';
+import { AnimationOptions } from 'ngx-lottie';
+import { IconComponent } from '../../../../shared/components/icon/icon.component';
 
 @Component({
   selector: 'app-header',
@@ -26,37 +28,55 @@ import { dropDownList } from '../../../../shared/models/shared.interface';
     NgOptimizedImage,
     DropdownComponent,
     DatepickerComponent,
+    AsyncPipe,
+    IconComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+  readonly route = inject(Router);
+  readonly comm = inject(CommService);
+
+  public isMenuOpen = signal<boolean>(false);
+
+  public options: AnimationOptions = {
+    path: '/json/menu.json',
+    autoplay: false,
+    loop: false,
+  };
+
   public navList: header[] = [
     {
       name: 'Overview',
       link: '/dashboard/overview',
       isSelect: true,
+      icon: 'overview',
     },
     {
       name: 'Transactions',
       link: '/dashboard/transactions',
       isSelect: false,
+      icon: 'transactions',
     },
     {
       name: 'Accounts',
       link: '/dashboard/accounts',
       isSelect: false,
+      icon: 'user',
     },
     {
       name: 'Categories',
       link: '/dashboard/categories',
       isSelect: false,
+      icon: 'category',
     },
     {
       name: 'Settings',
       link: '/dashboard/settings',
       isSelect: false,
+      icon: 'setting',
     },
   ];
 
@@ -65,11 +85,6 @@ export class HeaderComponent implements OnInit {
     { name: 'Checking', id: 2 },
     { name: 'Saving', id: 3 },
   ]);
-
-  constructor(
-    private readonly route: Router,
-    private readonly comm: CommService,
-  ) {}
 
   ngOnInit(): void {
     const routePath = this.route.url.replace('/dashboard/', '');
@@ -86,6 +101,4 @@ export class HeaderComponent implements OnInit {
       item.name == btnName ? (item.isSelect = true) : (item.isSelect = false),
     );
   }
-
-  datChange(date: string) {}
 }

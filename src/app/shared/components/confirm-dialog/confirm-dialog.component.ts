@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, InputSignal, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  InputSignal,
+  output,
+  signal,
+} from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { IconComponent } from '../icon/icon.component';
@@ -15,7 +23,6 @@ import { CommService } from '../../services/common/comm.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ConfirmationService, MessageService],
 })
-
 export class ConfirmDialogComponent {
   message: InputSignal<string> = input.required<string>();
   header: InputSignal<string> = input.required<string>();
@@ -28,8 +35,7 @@ export class ConfirmDialogComponent {
   isShow = signal<boolean>(true);
 
   private readonly comm = inject(CommService);
-  private readonly confirmationService = inject(ConfirmationService)
-
+  private readonly confirmationService = inject(ConfirmationService);
 
   showDialog(): void {
     this.confirmationService.confirm({
@@ -51,7 +57,6 @@ export class ConfirmDialogComponent {
   }
 
   delete(): void {
-    debugger;
     this.confirmationService.close();
     this.onConfirm.emit('success');
     this.comm.openToastMsg(this.msg(), 'success');

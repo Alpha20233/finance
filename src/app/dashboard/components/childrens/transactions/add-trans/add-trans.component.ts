@@ -29,13 +29,12 @@ import { TooltipModule } from 'primeng/tooltip';
     ButtonComponent,
     IconComponent,
     CommonModule,
-    TooltipModule
+    TooltipModule,
   ],
   templateUrl: './add-trans.component.html',
   styleUrl: './add-trans.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class AddTransComponent {
   private readonly comm = inject(CommService);
 

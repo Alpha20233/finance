@@ -2,6 +2,7 @@ import { AsyncPipe, CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   model,
   OnInit,
   signal,
@@ -39,14 +40,12 @@ import { CommService } from '../../../shared/services/common/comm.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInComponent implements OnInit {
+  public readonly comm = inject(CommService);
+  private readonly router = inject(Router);
+
   frm!: FormGroup;
   checked = model<boolean>(true);
   form_submit = signal<boolean>(false);
-
-  constructor(
-    public readonly comm: CommService,
-    private readonly router: Router,
-  ) {}
 
   ngOnInit(): void {
     this.frm = new FormGroup({
@@ -60,7 +59,7 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  submit() {
+  submit(): void {
     this.form_submit.set(true);
     if (this.frm.invalid) return;
     const formData: signin = this.frm.value;
@@ -68,6 +67,7 @@ export class SignInComponent implements OnInit {
       this.form_submit.set(false);
       this.router.navigate(['/dashboard']);
       this.frm.reset();
+      this.comm.openToastMsg('Sign in successfully.', 'success');
     }
   }
 }

@@ -13,7 +13,6 @@ import player from 'lottie-web';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAnimations(),
     provideExperimentalZonelessChangeDetection(),
     provideAnimationsAsync(),
     provideLottieOptions({

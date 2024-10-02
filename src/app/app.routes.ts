@@ -12,7 +12,7 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./core/modules/auth/auth.module').then((mod) => mod.AuthModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -20,6 +20,6 @@ export const routes: Routes = [
       import('./dashboard/modules/dashboard/dashboard.module').then(
         (mod) => mod.DashboardModule,
       ),
-    canActivate: [LogedGuard]
+    canActivate: [LogedGuard],
   },
 ];

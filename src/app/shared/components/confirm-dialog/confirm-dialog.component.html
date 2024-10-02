@@ -7,17 +7,14 @@
       <icon [name]="icon()" addCls="!tw-text-red-600 !tw-text-xl"></icon>
     </ng-template>
     <ng-template pTemplate="message">
-      <p>{{  message() }}</p>
+      <p>{{ message() }}</p>
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="tw-flex tw-justify-end tw-gap-2">
-        <app-button
-          (click)="cancel()"
-          type="outline"
-          addCls="!tw-h-10 !tw-rounded-lg"
-          >Cancel</app-button
+        <btn (click)="cancel()" type="outline" addCls="!tw-h-10 !tw-rounded-lg"
+          >Cancel</btn
         >
-        <app-button (click)="delete()">Confirm</app-button>
+        <btn (click)="delete()">Confirm</btn>
       </div>
     </ng-template>
   </p-confirmDialog>

@@ -12,7 +12,11 @@ import {
   inject,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Dropdown, DropdownFilterOptions, DropdownModule } from 'primeng/dropdown';
+import {
+  Dropdown,
+  DropdownFilterOptions,
+  DropdownModule,
+} from 'primeng/dropdown';
 import { IconComponent } from '../icon/icon.component';
 import { dropDownList, dropVariType } from '../../models/shared.interface';
 import { CommService } from '../../services/common/comm.service';
@@ -42,11 +46,11 @@ export class DropdownComponent implements OnInit {
   selectedItemModel = model<dropDownList>();
 
   typeValue = model<string>('');
-  
+
   styleClass = computed(() => {
     const classes = [
-      'tw-min-w-40 tw-h-10 tw-py-2 tw-px-4 tw-ring-0',
       this.addCls(),
+      'tw-min-w-40 tw-h-10 tw-py-2 tw-px-4 tw-ring-0 max-sm:tw-cursor-auto',
     ];
     if (this.type() === 'solid')
       classes.push(
@@ -79,12 +83,10 @@ export class DropdownComponent implements OnInit {
   }
 
   onDropdownClick(event: MouseEvent) {
-      event.stopPropagation();
-      this.dropdown.hide();
-      this.dropdown.clear();
-      this.typeValue.set('');
-      this.comm.openToastMsg('New item added successfully', 'success');
+    event.stopPropagation();
+    this.dropdown.hide();
+    this.dropdown.clear();
+    this.typeValue.set('');
+    this.comm.openToastMsg('New item added successfully', 'success');
   }
-
-
 }

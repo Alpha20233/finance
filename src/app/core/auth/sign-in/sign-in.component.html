@@ -31,7 +31,7 @@
     </div>
 
     <div
-      class="tw-flex tw-h-full tw-flex-col tw-justify-center tw-gap-y-5 tw-overflow-auto tw-p-1 max-md:tw-mb-12 max-sm:tw-mb-4 xl:tw-mx-auto xl:tw-min-w-[600px] xl:tw-gap-y-6 xl:tw-p-16"
+      class="tw-flex tw-h-full tw-flex-col tw-justify-center tw-gap-y-5 tw-overflow-auto tw-p-1 max-md:tw-mb-12 max-sm:tw-mb-4 md:tw-mx-auto md:tw-min-w-[32rem] xl:tw-mx-auto xl:tw-min-w-[600px] xl:tw-gap-y-6 xl:tw-p-16"
     >
       <div>
         <h3 class="tw-m-0 tw-text-2xl tw-font-normal">Get Started Now</h3>
@@ -43,7 +43,7 @@
       <div
         class="tw-group tw-flex tw-h-10 tw-w-full tw-items-center tw-justify-center tw-gap-x-2 tw-rounded-xl tw-border tw-border-solid tw-border-stroke-100 tw-ring-offset-2 tw-transition-all tw-duration-300 tw-ease-in hover:tw-bg-azure-600 hover:tw-ring-2 hover:tw-ring-azure-300 xl:tw-cursor-pointer"
       >
-        <picture class="tw-relative tw-block tw-h-10 tw-w-10">
+        <div class="tw-relative tw-block tw-h-10 tw-w-10">
           <img
             ngSrc="/icons/google.webp"
             decoding="async"
@@ -52,7 +52,7 @@
             class="tw-h-full tw-w-full"
             alt="google img"
           />
-        </picture>
+        </div>
         <p
           class="tw-select-none tw-text-sm tw-font-medium tw-text-slate-800 tw-transition-all tw-duration-300 tw-ease-in group-hover:tw-text-white"
         >
@@ -112,9 +112,7 @@
       >
       </p-checkbox>
 
-      <app-button #btn type="solid" (click)="!btn.disabled() && submit()"
-        >Login</app-button
-      >
+      <btn #btn type="solid" (click)="!btn.disabled() && submit()">Login</btn>
 
       <p class="tw-m-0 tw-select-none tw-text-sm">
         Don't have an account ?
@@ -126,7 +124,6 @@
       </p>
     </div>
   </form>
-
   @if (this.comm.isMobile() | async) {
     <div
       class="tw-col-span-1 tw-m-4 tw-h-[calc(100%_-_35px)] tw-overflow-hidden tw-rounded-2xl tw-bg-[#314AE3] xl:tw-inline-block"

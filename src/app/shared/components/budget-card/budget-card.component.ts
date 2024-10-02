@@ -24,9 +24,8 @@ import { CountUpModule } from 'ngx-countup';
   styleUrl: './budget-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class BudgetCardComponent implements OnInit, OnDestroy {
-  private readonly comm = inject(CommService)
+  private readonly comm = inject(CommService);
   private readonly destroy$ = new Subject<void>();
 
   title: InputSignal<BudgetTitle> = input.required<BudgetTitle>();
@@ -45,7 +44,7 @@ export class BudgetCardComponent implements OnInit, OnDestroy {
   finalCount = signal<number>(1000);
 
   periodCompaPercent = computed(() =>
-    Math.round(((this.lastMonAmt() - this.amt()) / this.lastMonAmt()) * 100)
+    Math.round(((this.lastMonAmt() - this.amt()) / this.lastMonAmt()) * 100),
   );
 
   readonly currYear = new Date().getFullYear();

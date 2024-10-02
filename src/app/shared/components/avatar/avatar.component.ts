@@ -22,9 +22,8 @@ import { Router } from '@angular/router';
   styleUrl: './avatar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class AvatarComponent {
-  private readonly route = inject(Router)
+  private readonly route = inject(Router);
 
   size: InputSignal<string> = input('medium');
   label: InputSignal<string> = input.required();

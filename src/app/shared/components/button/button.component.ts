@@ -15,7 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import { btnType } from '../../models/shared.interface';
 
 @Component({
-  selector: 'app-button',
+  selector: 'btn',
   standalone: true,
   imports: [ButtonModule, CommonModule],
   templateUrl: './button.component.html',
@@ -23,7 +23,7 @@ import { btnType } from '../../models/shared.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit {
-  private readonly primengConfig = inject(PrimeNGConfig)
+  private readonly primengConfig = inject(PrimeNGConfig);
 
   disabled: InputSignal<boolean> = input<boolean>(false);
   active: InputSignal<boolean> = input<boolean>(false);
@@ -31,7 +31,7 @@ export class ButtonComponent implements OnInit {
   addCls = input<string>('');
 
   private readonly baseClasses =
-    'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10 tw-outline-none';
+    'tw-w-full tw-justify-center tw-text-sm tw-rounded-lg tw-h-10 tw-outline-none max-sm:tw-cursor-auto';
   private readonly lightClasses =
     'tw-bg-transparent tw-text-white xl:tw-cursor-pointer tw-transition-all tw-ease-in tw-duration-200 hover:tw-bg-gray-50/20 tw-py-2 tw-px-4 tw-rounded-md tw-border-none tw-ring-0';
   private readonly activeClasses =
