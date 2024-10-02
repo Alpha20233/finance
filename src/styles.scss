@@ -213,6 +213,9 @@ body {
 
   .p-paginator-bottom {
     padding: 1rem 0;
+    @media only screen and (max-width: 425px) {
+      row-gap: 1rem;
+    }
 
     .p-paginator-element {
       display: none !important;
