@@ -13,6 +13,7 @@ import {
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { IconComponent } from '../icon/icon.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'avatar',
@@ -23,7 +24,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarComponent {
-  private readonly route = inject(Router);
+  readonly auth = inject(AuthService);
 
   size: InputSignal<string> = input('medium');
   label: InputSignal<string> = input.required();
@@ -56,7 +57,7 @@ export class AvatarComponent {
     return name.length === 1
       ? name[0].charAt(0).toUpperCase()
       : name[0].charAt(0).toUpperCase() +
-          name[name.length - 1].charAt(0).toUpperCase();
+      name[name.length - 1].charAt(0).toUpperCase();
   });
 
   public readonly backgroundColor = computed(() => {
@@ -64,7 +65,5 @@ export class AvatarComponent {
     return this.colors[index];
   });
 
-  logout(): void {
-    this.route.navigate(['/auth/signin']);
-  }
+
 }

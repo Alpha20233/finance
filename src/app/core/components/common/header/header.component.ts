@@ -16,6 +16,7 @@ import { CommService } from '../../../../shared/services/common/comm.service';
 import { dropDownList } from '../../../../shared/models/shared.interface';
 import { AnimationOptions } from 'ngx-lottie';
 import { IconComponent } from '../../../../shared/components/icon/icon.component';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -38,6 +39,7 @@ import { IconComponent } from '../../../../shared/components/icon/icon.component
 export class HeaderComponent implements OnInit {
   readonly route = inject(Router);
   readonly comm = inject(CommService);
+  readonly auth = inject(AuthService);
 
   public isMenuOpen = signal<boolean>(false);
 

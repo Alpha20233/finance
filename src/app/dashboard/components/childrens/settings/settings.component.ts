@@ -12,6 +12,7 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { LottieSerService } from '../../../../shared/services/lottie/lottie-ser.service';
 import { InputComponent } from '../../../../shared/components/input/input.component';
 import { DatepickerComponent } from '../../../../shared/components/datepicker/datepicker.component';
+import { AuthService } from '../../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-settings',
@@ -31,6 +32,7 @@ import { DatepickerComponent } from '../../../../shared/components/datepicker/da
 })
 export class SettingsComponent {
   public readonly lottieService = inject(LottieSerService);
+  public readonly auth = inject(AuthService);
 
   options: AnimationOptions[] = [
     {
