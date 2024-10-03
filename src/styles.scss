@@ -68,6 +68,7 @@ body {
 
   p-dropdown {
     .p-inputwrapper {
+
       .p-inputtext,
       .p-dropdown-trigger-icon {
         color: var(--pIconColor) !important;
@@ -129,6 +130,10 @@ body {
       .p-dropdown-item {
         padding: 0.5rem 1rem;
 
+        @media only screen and (max-width:435px) {
+          cursor: auto !important;
+        }
+
         &:hover {
           border-radius: 0.25rem !important;
         }
@@ -136,6 +141,7 @@ body {
         .p-highlight,
         .p-focus {
           border-radius: 0.5rem !important;
+
         }
 
         span {
@@ -170,7 +176,7 @@ body {
       box-shadow: none !important;
     }
 
-    .p-datatable-tbody > tr {
+    .p-datatable-tbody>tr {
       cursor: pointer;
 
       &:not(.p-highlight):hover {
@@ -184,7 +190,7 @@ body {
       }
     }
 
-    .p-datatable-thead > tr > th {
+    .p-datatable-thead>tr>th {
       padding: 0.75rem !important;
 
       span {
@@ -213,6 +219,7 @@ body {
 
   .p-paginator-bottom {
     padding: 1rem 0;
+
     @media only screen and (max-width: 425px) {
       row-gap: 1rem;
     }
@@ -305,8 +312,7 @@ body {
 }
 
 //primeng Classes
-@layer primeng {
-}
+@layer primeng {}
 
 //Tailwind classes
 @tailwind base;
