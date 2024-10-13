@@ -6,7 +6,7 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico", "/*.css", "/*.js", "/index.html"],
+        "files": ["/favicon.ico", "/*.css", "/*.js", "/index.html","/public/fonts/icons-fonts/**"],
         "urls": [
           "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         ]
@@ -17,7 +17,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/fonts/**", "/fonts/icons-fonts/**", "/*.svg", "/media/**"]
+        "files": ["/public/**","/*.svg"]
       }
     }
   ],
@@ -29,7 +29,7 @@
         "strategy": "freshness",
         "maxSize": 100,
         "maxAge": "1h",
-        "timeout": "30s"
+        "timeout": "10s"
       }
     }
   ]
