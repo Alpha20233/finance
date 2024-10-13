@@ -24,7 +24,7 @@
       "resources": {
         "files": [
           "/public/**",
-          "/public/fonts/**",
+          "/public/fonts/icons-fonts/**",
           "/*.svg"
         ]
       }
