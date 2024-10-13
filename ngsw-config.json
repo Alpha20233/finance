@@ -24,6 +24,7 @@
       "resources": {
         "files": [
           "/assets/**",
+          "/assets/fonts/**",
           "/*.svg"
         ]
       }
