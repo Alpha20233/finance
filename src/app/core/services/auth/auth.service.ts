@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CommService } from '../../../shared/services/common/comm.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private readonly route = inject(Router);

@@ -1,17 +1,25 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../../core/components/common/header/header.component';
-import { IconComponent } from "../../shared/components/icon/icon.component";
+import { IconComponent } from '../../shared/components/icon/icon.component';
 import { CommService } from '../../shared/services/common/comm.service';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { ButtonComponent } from "../../shared/components/button/button.component";
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { header } from '../../core/models/header.interface';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, IconComponent, AsyncPipe, CommonModule, RouterLink, ButtonComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    IconComponent,
+    AsyncPipe,
+    CommonModule,
+    RouterLink,
+    ButtonComponent,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

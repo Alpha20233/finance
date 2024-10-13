@@ -1,7 +1,8 @@
 @let isMobileView = this.comm.isMobile() | async;
 
 <div
-  class="tw-h-80 tw-w-full tw-bg-blue-600 tw-px-10 tw-py-4 max-md:tw-px-6 max-sm:tw-px-4 max-md:tw-py-2 max-sm:tw-h-96">
+  class="tw-h-80 tw-w-full tw-bg-blue-600 tw-px-10 tw-py-4 max-md:tw-px-6 max-md:tw-py-2 max-sm:tw-h-96 max-sm:tw-px-4"
+>
   <div class="tw-mx-auto tw-h-full tw-w-full tw-max-w-screen-2xl">
     @if (isMobileView) {
       <div class="tw-flex tw-items-center tw-justify-between">
@@ -22,10 +23,9 @@
           }
         </div>
 
-          <div class="tw-flex tw-items-center tw-justify-end">
-            <avatar label="deepesh solanki" [isPopUp]="true"></avatar>
-          </div>
-
+        <div class="tw-flex tw-items-center tw-justify-end">
+          <avatar label="deepesh solanki" [isPopUp]="true"></avatar>
+        </div>
       </div>
     }
 
@@ -82,4 +82,3 @@
     </div>
   </div>
 </div>
-

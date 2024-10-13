@@ -1,9 +1,9 @@
 @defer (on timer(150ms)) {
   <div
-    class="tw-flex tw-h-[524px] max-md:tw-h-[470px] tw-w-full tw-flex-col tw-gap-y-8 tw-rounded-md tw-bg-white tw-p-4"
+    class="tw-flex tw-h-[524px] tw-w-full tw-flex-col tw-gap-y-8 tw-rounded-md tw-bg-white tw-p-4 max-md:tw-h-[470px]"
   >
     <div
-      class="max-md:tw-gap-y-3 tw-flex xl:tw-flex-row md:tw-flex-col md:tw-items-start md:tw-gap-y-3 tw-w-full tw-items-center tw-justify-between tw-pr-3  max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4 max-sm:tw-pr-0"
+      class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3 max-md:tw-gap-y-3 max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4 max-sm:tw-pr-0 md:tw-flex-col md:tw-items-start md:tw-gap-y-3 xl:tw-flex-row"
     >
       <span class="tw-text-xl tw-font-semibold">Categories</span>
       <dropdown
@@ -22,12 +22,12 @@
       class="tw-flex tw-h-full tw-w-full tw-flex-col tw-items-center tw-justify-between tw-gap-y-6 max-sm:tw-gap-y-4"
     >
       <div
-        class=" max-sm:tw-h-64 max-sm:tw-w-64 xl:tw-h-56 xl:tw-w-56 md:tw-w-44 md:tw-h-44"
+        class="max-sm:tw-h-64 max-sm:tw-w-64 md:tw-h-44 md:tw-w-44 xl:tw-h-56 xl:tw-w-56"
       >
         <p-chart [type]="type()" [data]="data" [options]="options" />
       </div>
       <div
-        class="tw-flex max-md:tw-flex-row max-md:tw-gap-x-5 tw-w-full tw-flex-col tw-flex-wrap tw-items-start tw-justify-center tw-gap-y-4 max-sm:tw-flex-row max-sm:tw-gap-4"
+        class="tw-flex tw-w-full tw-flex-col tw-flex-wrap tw-items-start tw-justify-center tw-gap-y-4 max-md:tw-flex-row max-md:tw-gap-x-5 max-sm:tw-flex-row max-sm:tw-gap-4"
       >
         @for (c of [0, 1, 2, 3]; track c) {
           <div class="tw-flex tw-items-center tw-gap-x-2">
@@ -45,7 +45,7 @@
     class="tw-flex tw-h-full tw-w-full tw-flex-col tw-gap-y-6 tw-rounded-md tw-bg-white tw-p-4"
   >
     <div
-      class="tw-flex tw-w-full md:tw-flex-col xl:tw-flex-row md:tw-items-start  md:tw-gap-y-3 tw-items-center tw-justify-between tw-pr-3 max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4"
+      class="tw-flex tw-w-full tw-items-center tw-justify-between tw-pr-3 max-sm:tw-flex-col max-sm:tw-items-start max-sm:tw-gap-y-4 md:tw-flex-col md:tw-items-start md:tw-gap-y-3 xl:tw-flex-row"
     >
       <span
         class="tw-h-9 tw-min-w-40 tw-animate-pulse tw-rounded-md tw-bg-gray-200"

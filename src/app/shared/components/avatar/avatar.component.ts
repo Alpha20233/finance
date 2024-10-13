@@ -57,13 +57,11 @@ export class AvatarComponent {
     return name.length === 1
       ? name[0].charAt(0).toUpperCase()
       : name[0].charAt(0).toUpperCase() +
-      name[name.length - 1].charAt(0).toUpperCase();
+          name[name.length - 1].charAt(0).toUpperCase();
   });
 
   public readonly backgroundColor = computed(() => {
     const index = this.initialName().charCodeAt(0) % this.colors.length;
     return this.colors[index];
   });
-
-
 }
