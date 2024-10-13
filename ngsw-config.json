@@ -17,7 +17,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/fonts/**", "/fonts/icons-fonts/**", "/*.svg"]
+        "files": ["/fonts/**", "/fonts/icons-fonts/**", "/*.svg", "/media/**"]
       }
     }
   ],
