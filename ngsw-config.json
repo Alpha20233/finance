@@ -11,6 +11,9 @@
           "/*.css",
           "/*.js",
           "/index.html"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         ]
       }
     },
@@ -20,9 +23,9 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/fonts/**",  
-          "/*.svg",
-          "/fonts/icons-fonts/**"
+          "/fonts/**",
+          "/fonts/icons-fonts/**",
+          "/*.svg"
         ]
       }
     }
