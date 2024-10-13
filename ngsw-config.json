@@ -9,7 +9,11 @@
         "files": [
           "/favicon.ico",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/index.html"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         ]
       }
     },
@@ -22,6 +26,20 @@
           "/assets/**",
           "/*.svg"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "urls": [
+        "/api/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "1h",
+        "timeout": "10s"
       }
     }
   ]
