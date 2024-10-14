@@ -6,7 +6,14 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico", "/*.css", "/*.js", "/index.html","/public/fonts/icons-fonts/**"],
+        "files": [
+          "/favicon.ico",
+          "/*.css",
+          "/*.js",
+          "/index.html",
+          "/public/fonts/icons-fonts/**",
+          "/public/fonts/icons-fonts/*.{eot,svg,ttf,woff,woff2}"
+        ],
         "urls": [
           "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         ]
@@ -17,7 +24,10 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/public/**","/*.svg"]
+        "files": [
+          "/public/**",
+          "/*.svg"
+        ]
       }
     }
   ],
