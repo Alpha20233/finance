@@ -25,10 +25,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": [
-          "/public/**",
-          "/*.svg"
-        ]
+        "files": ["/public/**", "/*.svg"]
       }
     }
   ],
@@ -45,9 +42,7 @@
     },
     {
       "name": "fonts",
-      "urls": [
-        "/media/*.woff2"
-      ],
+      "urls": ["/media/*.woff2"],
       "cacheConfig": {
         "maxSize": 50,
         "maxAge": "30d",

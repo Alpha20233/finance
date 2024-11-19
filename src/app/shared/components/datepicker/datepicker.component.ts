@@ -10,7 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Calendar, CalendarModule } from 'primeng/calendar';
-import { AsyncPipe, CommonModule, LowerCasePipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 import { CommService } from '../../services/common/comm.service';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,6 @@ import { SelectionMode } from '../../models/shared.interface';
   standalone: true,
   imports: [
     CalendarModule,
-    LowerCasePipe,
     IconComponent,
     CommonModule,
     AsyncPipe,
@@ -63,7 +62,7 @@ export class DatepickerComponent {
   ]);
 
   private readonly baseClass =
-    '!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500';
+    '!tw-text-sm tw-transition-all tw-duration-200 tw-ease-in placeholder:tw-text-[13px] placeholder:tw-text-slate-500 tw-h-[38.55px]';
   private readonly modeSingleClass =
     'tw-p-[0.4rem] tw-text-black tw-rounded-xl tw-border-2 tw-border-stroke-100 tw-ring-offset-2  focus:tw-border-azure-500 focus:tw-ring-2 focus:tw-ring-azure-200  tw-px-4';
   private readonly modeRangeClass =
